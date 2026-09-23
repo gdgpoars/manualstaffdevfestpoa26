@@ -1,0 +1,1280 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manual do Staff — DevFest Porto Alegre 2026</title>
+<meta name="description" content="Manual operacional dos voluntários do DevFest Porto Alegre 2026. 31 de outubro, Faculdade Dom Bosco.">
+<meta name="theme-color" content="#0c0d13">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👻</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0d13;--bg-2:#10121a;--surface:#151823;--surface-2:#1c2030;
+  --line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.15);
+  --text:#eceaf4;--muted:#a3a1b7;--faint:#6f6d85;
+  --pumpkin:#ff8a1f;--moon:#f6e7b8;
+  --blue:#4285f4;--red:#ea4335;--yellow:#fbbc04;--green:#34a853;--purple:#a56bff;
+  --font:"Google Sans","Product Sans","Google Sans Text",Roboto,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Google Sans Code","Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  box-sizing:border-box;
+}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%;margin:0;overflow:hidden;background:var(--bg)}
+body{color:var(--text);font-family:var(--font);font-size:20px;line-height:1.45;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--pumpkin);outline-offset:3px;border-radius:6px}
+::selection{background:var(--pumpkin);color:#0c0d13}
+button{font:inherit;color:inherit}
+
+/* ================= background ================= */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(900px 600px at 85% -10%,rgba(246,231,184,.07),transparent 60%),
+  radial-gradient(800px 600px at -10% 110%,rgba(165,107,255,.08),transparent 60%),var(--bg)}
+.stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 12% 22%,#fff8,transparent),radial-gradient(1px 1px at 32% 12%,#fff6,transparent),radial-gradient(1.5px 1.5px at 52% 30%,#fff5,transparent),radial-gradient(1px 1px at 68% 8%,#fff7,transparent),radial-gradient(1px 1px at 88% 40%,#fff5,transparent),radial-gradient(1px 1px at 22% 56%,#fff4,transparent),radial-gradient(1.5px 1.5px at 44% 76%,#fff3,transparent),radial-gradient(1px 1px at 92% 72%,#fff4,transparent),radial-gradient(1px 1px at 6% 86%,#fff4,transparent),radial-gradient(1px 1px at 76% 88%,#fff3,transparent);animation:twinkle 6s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.45}to{opacity:1}}
+.fog{position:absolute;left:-10%;right:-10%;bottom:-60px;height:300px;background:radial-gradient(50% 60% at 30% 70%,rgba(160,158,180,.09),transparent 70%),radial-gradient(40% 50% at 75% 80%,rgba(160,158,180,.07),transparent 70%);filter:blur(12px);animation:drift 20s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translateX(6%)}}
+
+/* ================= deck / stage ================= */
+.deck{position:fixed;inset:0;z-index:1}
+.stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform-origin:center center}
+body.fluid .stage{left:0;top:0;width:100%;height:100%;transform:none!important}
+
+.slide{position:absolute;inset:0;padding:58px 84px 104px;display:flex;flex-direction:column;overflow:hidden;
+  opacity:0;visibility:hidden;transform:translateX(70px);
+  transition:opacity .45s ease,transform .7s cubic-bezier(.2,.8,.2,1),visibility 0s linear .7s}
+.slide.prev{transform:translateX(-70px)}
+.slide.active{opacity:1;visibility:visible;transform:none;transition:opacity .5s ease .08s,transform .7s cubic-bezier(.2,.8,.2,1) .04s,visibility 0s}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 420px at 100% 0%,color-mix(in srgb,var(--acc,var(--pumpkin)) 13%,transparent),transparent 70%)}
+.slide::after{content:attr(data-emoji);position:absolute;right:50px;bottom:40px;font-size:300px;line-height:1;opacity:.045;transform:rotate(-10deg);pointer-events:none;animation:float 9s ease-in-out infinite alternate}
+@keyframes float{to{transform:rotate(-4deg) translateY(-14px)}}
+body.fluid .slide{padding:76px 20px 120px;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body.fluid .slide::after{font-size:170px;position:fixed;right:10px;bottom:90px}
+
+.slide.in .rv{animation:rise .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0ms)}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ================= slide head ================= */
+.s-head{position:relative;z-index:1;margin-bottom:28px}
+.tag{display:flex;gap:12px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.chap{font-size:15px;font-weight:500;padding:5px 13px;border-radius:999px;border:1px solid color-mix(in srgb,var(--acc) 45%,transparent);color:color-mix(in srgb,var(--acc) 65%,#fff);background:color-mix(in srgb,var(--acc) 10%,transparent)}
+.num{font-family:var(--mono);font-size:15px;color:var(--faint)}
+h2{font-size:54px;line-height:1.04;letter-spacing:-.03em;margin:0;font-weight:700;max-width:1250px}
+.sub{font-size:22px;color:var(--muted);margin:10px 0 0;max-width:1150px}
+.s-body{position:relative;z-index:1;flex:1;min-height:0;display:flex;flex-direction:column;gap:22px}
+body.fluid h2{font-size:31px}
+body.fluid .sub{font-size:17px}
+body.fluid body{font-size:16px}
+
+/* ================= layout ================= */
+.grid{display:grid;grid-template-columns:repeat(var(--c,2),minmax(0,1fr));gap:20px;align-items:start}
+.grid.split{grid-template-columns:var(--cols,1.15fr .85fr)}
+.stretch{align-items:stretch}
+body.fluid .grid,body.fluid .grid.split{grid-template-columns:1fr!important}
+.h{font-size:19px;font-weight:700;margin:0 0 12px;letter-spacing:-.005em;display:flex;align-items:center;gap:8px}
+.muted{color:var(--muted)}
+p{margin:0}
+
+/* ================= components ================= */
+.pins{display:flex;flex-wrap:wrap;gap:10px}
+.pin{display:inline-flex;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);padding:7px 15px;border-radius:999px;font-size:17px}
+
+.ticks,.steps,.check{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--c,3),minmax(0,1fr));gap:9px}
+body.fluid .ticks,body.fluid .steps,body.fluid .check{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))!important}
+.ticks li{position:relative;padding:11px 15px 11px 34px;background:var(--surface);border:1px solid var(--line);border-radius:13px;font-size:18px;line-height:1.3}
+.ticks li::before{content:"";position:absolute;left:15px;top:18px;width:7px;height:7px;border-radius:50%;background:var(--dot,var(--pumpkin))}
+.panel .ticks li,.area .ticks li{background:var(--bg-2)}
+.steps li{display:flex;gap:12px;align-items:flex-start;padding:11px 15px;background:var(--surface);border:1px solid var(--line);border-radius:13px;font-size:18px;line-height:1.3;counter-increment:s}
+.steps{counter-reset:s}
+.steps li::before{content:counter(s);font-family:var(--mono);font-size:13px;width:25px;height:25px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;flex:none;color:var(--pumpkin)}
+
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.flow span{padding:12px 20px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line-2);font-weight:500;font-size:20px}
+.flow b{color:var(--faint);font-weight:400;font-size:20px}
+.flow span:nth-of-type(4n+1){border-color:rgba(66,133,244,.55)}
+.flow span:nth-of-type(4n+2){border-color:rgba(234,67,53,.55)}
+.flow span:nth-of-type(4n+3){border-color:rgba(251,188,4,.55)}
+.flow span:nth-of-type(4n+4){border-color:rgba(52,168,83,.55)}
+.flow.sm span{font-size:17px;padding:9px 15px}
+
+.callout{border-radius:16px;padding:16px 20px;border:1px solid var(--line-2);background:var(--surface);display:flex;gap:14px;align-items:flex-start;font-size:18px}
+.callout .ic{font-size:24px;line-height:1.1}
+.callout strong{display:block;margin-bottom:2px}
+.callout ul{margin:6px 0 0;padding-left:20px}
+.callout.warn{border-color:rgba(251,188,4,.38);background:linear-gradient(135deg,rgba(251,188,4,.08),rgba(251,188,4,.02))}
+.callout.stop{border-color:rgba(234,67,53,.42);background:linear-gradient(135deg,rgba(234,67,53,.1),rgba(234,67,53,.02))}
+.callout.good{border-color:rgba(52,168,83,.38);background:linear-gradient(135deg,rgba(52,168,83,.09),rgba(52,168,83,.02))}
+.callout.info{border-color:rgba(66,133,244,.38);background:linear-gradient(135deg,rgba(66,133,244,.09),rgba(66,133,244,.02))}
+
+.golden{position:relative;padding:28px 32px;border-radius:24px;background:radial-gradient(520px 220px at 100% 0%,color-mix(in srgb,var(--g,var(--pumpkin)) 18%,transparent),transparent 70%),var(--surface);border:1px solid color-mix(in srgb,var(--g,var(--pumpkin)) 38%,transparent)}
+.golden small{color:var(--g,var(--pumpkin));font-weight:500;font-size:17px}
+.golden p{font-size:38px;line-height:1.15;letter-spacing:-.02em;font-weight:700;margin-top:8px}
+body.fluid .golden p{font-size:26px}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px 22px}
+.panel p{font-size:18px}
+
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{flex:1 1 150px;border-radius:14px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);position:relative;overflow:hidden}
+.badge::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--b)}
+.badge b{display:block;font-size:19px}
+.badge small{color:var(--muted);font-size:15px;line-height:1.3;display:block;margin-top:3px}
+.badge.big b{font-size:34px;letter-spacing:-.02em}
+
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:141px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--blue),var(--red),var(--yellow),var(--green))}
+.timeline li{display:grid;grid-template-columns:126px 32px 1fr;align-items:start;padding:8px 0}
+.timeline time{font-family:var(--mono);font-size:15px;color:var(--muted);text-align:right;padding-top:3px;line-height:1.3}
+.timeline li::after{content:"";grid-column:2;grid-row:1;justify-self:center;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--pumpkin);margin-top:6px}
+.timeline li.key::after{background:var(--pumpkin);box-shadow:0 0 0 6px rgba(255,138,31,.16)}
+.timeline div{grid-column:3;font-size:19px}
+.timeline div small{display:block;color:var(--muted);font-size:15px}
+body.fluid .timeline::before{left:101px}
+body.fluid .timeline li{grid-template-columns:86px 32px 1fr}
+
+.radio{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line-2);border-radius:20px;padding:20px;display:grid;gap:12px}
+.formula{display:flex;flex-wrap:wrap;gap:10px}
+.formula div{flex:1 1 130px;border-radius:14px;padding:12px 16px;background:var(--bg-2);border:1px solid var(--line)}
+.formula div b{display:block;font-size:24px;letter-spacing:-.01em}
+.formula div small{color:var(--muted);font-size:15px}
+.formula div:nth-child(1){border-top:3px solid var(--blue)}
+.formula div:nth-child(2){border-top:3px solid var(--yellow)}
+.formula div:nth-child(3){border-top:3px solid var(--green)}
+.bubble{background:var(--bg-2);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:11px 16px;font-size:18px}
+.bubble::before{content:"📻 "}
+.no{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.no li{padding:8px 15px;border-radius:999px;background:rgba(234,67,53,.08);border:1px solid rgba(234,67,53,.32);font-size:17px}
+.no li::before{content:"✕ ";color:var(--red)}
+
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:17px}
+th,td{text-align:left;padding:9px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:500;color:var(--muted);font-size:15px;background:var(--bg-2)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:500;white-space:nowrap}
+td .sw{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:10px;background:var(--s);vertical-align:middle}
+.tbd{color:var(--yellow)}
+td.dash{color:var(--faint)}
+body.fluid table{min-width:720px;font-size:15px}
+
+.area{position:relative;border-radius:22px;padding:20px 22px;background:radial-gradient(420px 170px at 100% 0%,color-mix(in srgb,var(--a) 17%,transparent),transparent 70%),var(--surface);border:1px solid color-mix(in srgb,var(--a) 32%,var(--line))}
+.area-top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.area-top .emo{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:27px;background:color-mix(in srgb,var(--a) 16%,var(--bg-2));border:1px solid color-mix(in srgb,var(--a) 38%,transparent);flex:none}
+.area-top .room{font-family:var(--mono);font-size:14px;color:color-mix(in srgb,var(--a) 75%,#fff);display:block}
+.area-top b{font-size:23px;letter-spacing:-.015em;line-height:1.15}
+.roles{display:grid;grid-template-columns:repeat(var(--r,4),minmax(0,1fr));gap:8px}
+body.fluid .roles{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+.role{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:9px 14px}
+.role small{display:block;color:var(--muted);font-size:14px}
+.role span{font-size:18px;font-weight:500}
+.role.tbd span{color:var(--yellow)}
+.mini{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.mini li{font-size:15px;padding:5px 11px;border-radius:999px;background:var(--bg-2);border:1px solid var(--line)}
+
+.check li label{display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line);cursor:pointer;font-size:17px;line-height:1.3;transition:border-color .2s}
+.check li label:hover{border-color:var(--line-2)}
+.check input{appearance:none;flex:none;width:21px;height:21px;border-radius:6px;border:1.5px solid var(--line-2);margin:0;display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s}
+.check input::after{content:"";width:10px;height:6px;border-left:2px solid #0c0d13;border-bottom:2px solid #0c0d13;transform:rotate(-45deg) translate(1px,-1px) scale(0);transition:transform .22s cubic-bezier(.3,1.6,.5,1)}
+.check input:checked{background:var(--green);border-color:var(--green)}
+.check input:checked::after{transform:rotate(-45deg) translate(1px,-1px) scale(1)}
+.check input:checked + span{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(255,255,255,.25)}
+.check.req li label{border-left:3px solid rgba(234,67,53,.65)}
+.check.req input:checked{background:var(--red);border-color:var(--red)}
+.check.conf li label{border-left:3px solid rgba(251,188,4,.65)}
+.check.conf input:checked{background:var(--yellow);border-color:var(--yellow)}
+.check-bar{display:flex;align-items:center;gap:14px}
+.meter{flex:1;height:6px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--green);border-radius:99px;transition:width .4s cubic-bezier(.2,.8,.2,1)}
+.check-bar .count{font-family:var(--mono);font-size:14px;color:var(--muted);white-space:nowrap}
+.linkbtn{background:none;border:0;color:var(--muted);font-size:14px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:4px}
+.linkbtn:hover{color:var(--text)}
+
+.quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+body.fluid .quick{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:6px;align-content:start;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s}
+.q:hover{transform:translateY(-3px);border-color:rgba(255,138,31,.45)}
+.q .qq{display:flex;gap:10px;align-items:center;font-weight:700;font-size:19px;line-height:1.2}
+.q .qq span{font-size:26px}
+.q .qa{font-size:17px;color:var(--muted)}
+.q .qa b{color:var(--text);font-weight:500}
+
+.who{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:4px 0 12px}
+.fi{font-size:34px;display:block;margin-bottom:6px}
+
+/* ================= cover ================= */
+.cover{justify-content:center;padding-top:40px}
+.cover::after{display:none}
+.moon{position:absolute;right:120px;top:100px;width:330px;height:330px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#fffbe8 0 8%,transparent 30%),radial-gradient(circle at 62% 58%,rgba(170,150,100,.35) 0 9%,transparent 10%),radial-gradient(circle at 36% 66%,rgba(170,150,100,.28) 0 6%,transparent 7%),radial-gradient(circle at 70% 30%,rgba(170,150,100,.25) 0 5%,transparent 6%),radial-gradient(circle at 50% 50%,#f8ecc4,#e7d39a 70%,#cdb877);
+  box-shadow:0 0 70px 12px rgba(246,231,184,.18),0 0 200px 50px rgba(246,231,184,.08);animation:glow 5s ease-in-out infinite alternate}
+.moon.sm{width:200px;height:200px;right:110px;top:90px}
+@keyframes glow{to{box-shadow:0 0 90px 18px rgba(246,231,184,.25),0 0 240px 70px rgba(246,231,184,.1)}}
+.slide.in .moon{animation:moonrise 1.4s cubic-bezier(.2,.8,.2,1) both,glow 5s ease-in-out 1.4s infinite alternate}
+@keyframes moonrise{from{transform:translateY(70px);opacity:0}to{transform:none;opacity:1}}
+.bat{position:absolute;top:150px;left:0;width:48px;color:#05060a;filter:drop-shadow(0 0 1px rgba(246,231,184,.3));animation:fly 15s linear infinite}
+.bat svg{display:block;animation:flap .28s ease-in-out infinite alternate}
+.bat.b2{width:30px;top:250px;animation-duration:20s;animation-delay:-7s}
+.bat.b3{width:24px;top:70px;animation-duration:25s;animation-delay:-13s}
+@keyframes flap{to{transform:scaleY(.45)}}
+@keyframes fly{0%{transform:translate(1700px,40px)}50%{transform:translate(800px,-20px)}100%{transform:translate(-150px,30px)}}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:6px 16px 6px 8px;border:1px solid var(--line-2);border-radius:999px;background:rgba(21,24,35,.6);font-size:17px;color:var(--muted);align-self:flex-start}
+.kicker em{font-style:normal;background:var(--surface-2);border-radius:999px;padding:2px 11px;color:var(--text)}
+.cover h1{font-size:108px;line-height:.96;letter-spacing:-.045em;font-weight:700;margin:30px 0 24px;max-width:1050px}
+.grad{display:block;background:linear-gradient(95deg,var(--moon) 0%,var(--pumpkin) 45%,var(--red) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover .lead{font-size:25px;color:var(--muted);max-width:760px}
+.meta{display:flex;flex-wrap:wrap;gap:12px 28px;margin:30px 0 34px;font-size:20px}
+.meta span{margin-right:8px}
+.countdown{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.countdown .unit{background:rgba(21,24,35,.72);border:1px solid var(--line);border-radius:16px;padding:10px 16px;min-width:92px;text-align:center}
+.countdown .unit b{display:block;font-size:34px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.1}
+.countdown .unit small{color:var(--muted);font-size:14px}
+.cd-label{font-size:16px;color:var(--muted);width:100%}
+.start-hint{margin-top:34px;font-size:16px;color:var(--faint);display:flex;gap:8px;align-items:center}
+kbd{font-family:var(--mono);font-size:13px;background:var(--surface);border:1px solid var(--line-2);border-bottom-width:2px;border-radius:6px;padding:1px 7px;color:var(--muted)}
+body.fluid .cover h1{font-size:46px}
+body.fluid .cover .lead{font-size:18px}
+body.fluid .moon{width:150px;height:150px;right:-30px;top:60px;opacity:.85}
+body.fluid .meta{font-size:16px}
+body.fluid .countdown .unit{min-width:66px;padding:8px 10px}
+body.fluid .countdown .unit b{font-size:24px}
+body.fluid .bat{display:none}
+
+/* final */
+.final-list{list-style:none;margin:0;padding:0;display:grid;gap:0;max-width:1100px}
+.final-list li{font-size:33px;line-height:1.22;letter-spacing:-.02em;font-weight:500;padding:12px 0;border-bottom:1px solid var(--line)}
+.final-list li:last-child{border-bottom:0;color:var(--moon)}
+.ask{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.ask span{padding:9px 16px;border-radius:999px;background:var(--surface-2);font-size:18px}
+body.fluid .final-list li{font-size:21px}
+
+/* ================= chrome ================= */
+.topbar{position:fixed;top:0;left:0;right:0;height:3px;z-index:20;background:rgba(255,255,255,.04)}
+.topbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--green));transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.hud{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 22px calc(env(safe-area-inset-bottom,0px) + 14px);pointer-events:none}
+.hud > *{pointer-events:auto}
+.brand{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.dots{display:inline-flex;gap:4px}
+.dots i{width:7px;height:7px;border-radius:50%}
+.dots i:nth-child(1){background:var(--blue)}.dots i:nth-child(2){background:var(--red)}.dots i:nth-child(3){background:var(--yellow)}.dots i:nth-child(4){background:var(--green)}
+.ctrl{display:flex;align-items:center;gap:4px;background:rgba(21,24,35,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line-2);border-radius:999px;padding:5px}
+.ctrl button{appearance:none;border:0;background:transparent;width:40px;height:40px;border-radius:50%;cursor:pointer;display:grid;place-items:center;color:var(--text);transition:background .2s}
+.ctrl button:hover{background:var(--surface-2)}
+.ctrl button:disabled{opacity:.3;cursor:default;background:transparent}
+.ctrl .counter{width:auto;white-space:nowrap;appearance:none;border:0;background:transparent;cursor:pointer;padding:0 12px;height:40px;border-radius:999px;font-family:var(--mono);font-size:15px;color:var(--muted);display:flex;align-items:baseline;gap:6px;font-variant-numeric:tabular-nums;transition:background .2s}
+.ctrl .counter:hover{background:var(--surface-2)}
+.ctrl .counter b{color:var(--text);font-size:22px;font-weight:500;letter-spacing:-.02em}
+.sep{width:1px;height:22px;background:var(--line-2);margin:0 4px}
+body.fluid .brand{display:none}
+body.fluid .hud{justify-content:center}
+body.fluid .ctrl .opt{display:none}
+
+.mtitle{position:fixed;top:0;left:0;right:0;z-index:15;display:none;padding:calc(env(safe-area-inset-top,0px) + 14px) 20px 12px;background:linear-gradient(var(--bg) 60%,transparent);font-size:14px;color:var(--muted)}
+body.fluid .mtitle{display:flex;gap:8px;align-items:center}
+
+/* overview */
+.ov{position:fixed;inset:0;z-index:40;background:rgba(12,13,19,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.ov.open{opacity:1;visibility:visible;transition:opacity .3s}
+.ov-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:calc(env(safe-area-inset-top,0px) + 22px) 28px 14px}
+.ov-head h3{margin:0;font-size:24px;letter-spacing:-.02em}
+.ov-head input{flex:1;max-width:360px;background:var(--surface);border:1px solid var(--line-2);border-radius:12px;padding:10px 14px;color:var(--text);font:inherit;font-size:15px}
+.ov-grid{flex:1;overflow-y:auto;padding:8px 28px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;align-content:start}
+.ov-item{appearance:none;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:14px 16px;cursor:pointer;display:grid;gap:4px;transition:border-color .2s,transform .2s}
+.ov-item:hover{border-color:var(--line-2);transform:translateY(-2px)}
+.ov-item.cur{border-color:var(--pumpkin)}
+.ov-item .oi-n{font-family:var(--mono);font-size:13px;color:var(--faint);display:flex;justify-content:space-between}
+.ov-item .oi-n i{font-style:normal;width:8px;height:8px;border-radius:50%;background:var(--c);align-self:center}
+.ov-item .oi-t{font-size:16px;font-weight:500;line-height:1.3}
+.ov-item .oi-c{font-size:13px;color:var(--muted)}
+.ov-close{appearance:none;border:1px solid var(--line-2);background:var(--surface);width:42px;height:42px;border-radius:50%;cursor:pointer}
+
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 84px);transform:translate(-50%,16px);opacity:0;background:var(--surface-2);border:1px solid var(--line-2);padding:10px 18px;border-radius:999px;font-size:15px;z-index:50;pointer-events:none;transition:opacity .3s,transform .3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .bat{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bg" aria-hidden="true"><div class="stars"></div><div class="fog"></div></div>
+<div class="topbar" aria-hidden="true"><i id="bar"></i></div>
+<div class="mtitle" id="mtitle"><span class="dots"><i></i><i></i><i></i><i></i></span><span id="mtitleText">Manual do Staff</span></div>
+
+<div class="deck" id="deck">
+<div class="stage" id="stage">
+
+<!-- 1 CAPA -->
+<section class="slide cover" data-title="Capa" data-chapter="DevFest Porto Alegre 2026" style="--acc:var(--moon)">
+  <div class="moon" aria-hidden="true"></div>
+  <div class="bat b1" aria-hidden="true"><svg viewBox="0 0 64 28" fill="currentColor"><path d="M32 8c-2 0-3 2-3 2l-2-4-1 4C22 4 14 2 0 6c8 2 11 6 12 12 3-3 7-3 9 0 2-2 5-2 7 1 1-2 2-3 4-3s3 1 4 3c2-3 5-3 7-1 2-3 6-3 9 0 1-6 4-10 12-12-14-4-22-2-26 4l-1-4-2 4s-1-2-3-2Z"/></svg></div>
+  <div class="bat b2" aria-hidden="true"><svg viewBox="0 0 64 28" fill="currentColor"><path d="M32 8c-2 0-3 2-3 2l-2-4-1 4C22 4 14 2 0 6c8 2 11 6 12 12 3-3 7-3 9 0 2-2 5-2 7 1 1-2 2-3 4-3s3 1 4 3c2-3 5-3 7-1 2-3 6-3 9 0 1-6 4-10 12-12-14-4-22-2-26 4l-1-4-2 4s-1-2-3-2Z"/></svg></div>
+  <div class="bat b3" aria-hidden="true"><svg viewBox="0 0 64 28" fill="currentColor"><path d="M32 8c-2 0-3 2-3 2l-2-4-1 4C22 4 14 2 0 6c8 2 11 6 12 12 3-3 7-3 9 0 2-2 5-2 7 1 1-2 2-3 4-3s3 1 4 3c2-3 5-3 7-1 2-3 6-3 9 0 1-6 4-10 12-12-14-4-22-2-26 4l-1-4-2 4s-1-2-3-2Z"/></svg></div>
+  <div class="s-body" style="justify-content:center;gap:0">
+    <span class="kicker"><em>👻 Staff</em> GDG Porto Alegre &amp; GDG Caxias do Sul</span>
+    <h1>Manual operacional <span class="grad">dos voluntários</span></h1>
+    <p class="lead">Onde você precisa estar, o que precisa fazer, quem chamar e o que acontece depois.</p>
+    <div class="meta"><div><span>📅</span>31 de outubro de 2026</div><div><span>🕘</span>09h às 18h</div><div><span>📍</span>Faculdade Dom Bosco, Porto Alegre/RS</div></div>
+    <div class="countdown" id="countdown">
+      <div class="cd-label">Faltam para a chegada do Staff, 07h45 de 31/10</div>
+      <div class="unit"><b id="cd-d">--</b><small>dias</small></div>
+      <div class="unit"><b id="cd-h">--</b><small>horas</small></div>
+      <div class="unit"><b id="cd-m">--</b><small>min</small></div>
+      <div class="unit"><b id="cd-s">--</b><small>seg</small></div>
+    </div>
+    <div class="start-hint">Avance com <kbd>→</kbd> ou <kbd>espaço</kbd>. Veja todas as telas com <kbd>G</kbd>.</div>
+  </div>
+</section>
+
+<!-- 2 MISSÃO -->
+<section class="slide" data-title="Nossa missão como Staff" data-chapter="Antes de abrir as portas" data-emoji="🎃" style="--acc:var(--purple)">
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span><span class="num">Seção 01</span></div>
+    <h2>Nossa missão como Staff</h2><p class="sub">O Staff é responsável por fazer o evento acontecer de forma organizada, acolhedora e fluida.</p></header>
+  <div class="s-body">
+    <div class="grid split">
+      <div><p class="h">Durante o evento, nosso papel é</p>
+        <ul class="ticks" style="--c:2"><li>Orientar participantes.</li><li>Apoiar palestrantes.</li><li>Manter as salas funcionando.</li><li>Acompanhar os horários.</li><li>Apoiar patrocinadores.</li><li>Resolver ou encaminhar problemas.</li><li>Manter comunicação entre as equipes.</li><li>Garantir que cada área tenha o suporte necessário.</li></ul></div>
+      <div class="golden"><small>✨ Regra de ouro</small><p>Você não precisa resolver tudo. Precisa saber quem deve ser acionado.</p></div>
+    </div>
+    <div><p class="h">Se algo sair do previsto</p>
+    <div class="flow"><span>Percebeu</span><b>→</b><span>Identifica</span><b>→</b><span>Comunica</span><b>→</b><span>Encaminha</span><b>→</b><span>Acompanha</span></div></div>
+  </div>
+</section>
+
+<!-- 3 MONTAGEM -->
+<section class="slide" data-title="Cronograma geral: montagem 30/10" data-chapter="Antes de abrir as portas" data-emoji="🛠️" style="--acc:var(--purple)">
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span><span class="num">Seção 02</span></div>
+    <h2>📅 30/10: montagem</h2><p class="sub">A partir das 18h, com a participação dos voluntários que puderem comparecer.</p></header>
+  <div class="s-body">
+    <div><p class="h">Prioridades da montagem</p>
+    <ul class="ticks" style="--c:4">
+      <li>Organização do palco principal.</li><li>Organização das salas.</li><li>Identificação das salas.</li><li>Montagem do credenciamento.</li>
+      <li>Montagem do espaço dos patrocinadores.</li><li>Organização do Lounge/Pátio.</li><li>Organização do espaço GDGs.</li><li>Organização do Covil.</li>
+      <li>Organização da mesa de som.</li><li style="--dot:var(--blue)">Teste dos notebooks.</li><li style="--dot:var(--blue)">Teste dos passadores.</li><li style="--dot:var(--blue)">Teste dos timers.</li>
+      <li style="--dot:var(--blue)">Teste dos walkie-talkies.</li><li>Organização das caixas de cada sala.</li><li>Organização dos kits de Staff.</li><li>Montagem dos welcome kits.</li>
+      <li>Separação das canecas.</li><li>Organização dos materiais de mídia.</li><li>Organização da sinalização.</li><li style="--dot:var(--blue)">Teste da transmissão do auditório para o pátio.</li>
+    </ul></div>
+    <div class="callout warn"><span class="ic">🎁</span><div><strong>Welcome kits</strong>Os welcome kits devem ser montados no dia 30/10.</div></div>
+  </div>
+</section>
+
+<!-- 4 CRONOGRAMA 31/10 -->
+<section class="slide" data-title="31/10: cronograma do Staff" data-chapter="Antes de abrir as portas" data-emoji="🕰️" style="--acc:var(--purple)">
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span><span class="num">Seção 03</span></div>
+    <h2>31/10: cronograma do Staff</h2></header>
+  <div class="s-body">
+    <div class="grid" style="--c:2">
+      <ol class="timeline">
+        <li class="key"><time>07h45</time><div>Chegada dos voluntários</div></li>
+        <li><time>07h45–08h00</time><div>Check-in, identificação e organização pessoal</div></li>
+        <li><time>08h00</time><div>Concentração na Sala do Staff</div></li>
+        <li class="key"><time>08h00–08h15</time><div>Briefing geral</div></li>
+        <li><time>08h15</time><div>Credenciamento inicia</div></li>
+        <li><time>08h15</time><div>Entrega de canecas inicia</div></li>
+        <li><time>08h15–09h00</time><div>Salas abertas<small>Participantes podem se acomodar</small></div></li>
+        <li class="key"><time>09h00</time><div>Abertura oficial no Auditório</div></li>
+      </ol>
+      <ol class="timeline">
+        <li><time>09h00–18h00</time><div>Programação, experiências e networking</div></li>
+        <li><time>Antes do almoço</time><div>Foto oficial do Staff</div></li>
+        <li><time>Almoço</time><div>Revezamento dos voluntários</div></li>
+        <li><time>16h00</time><div>Encerramento do credenciamento</div></li>
+        <li class="key"><time>18h00</time><div>Encerramento do evento</div></li>
+        <li><time>Após a última palestra</time><div>Desmontagem da sala<small>Após a última palestra de cada sala</small></div></li>
+        <li><time>Após o fim</time><div>Desmontagem geral<small>Após o encerramento</small></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 5 CHEGADA -->
+<section class="slide" data-title="07h45: chegada dos voluntários" data-chapter="Antes de abrir as portas" data-emoji="🚪" style="--acc:var(--purple)">
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span><span class="num">Seção 04</span></div>
+    <h2>07h45: chegada dos voluntários</h2><p class="sub">Ao chegar, cada voluntário deve:</p></header>
+  <div class="s-body">
+    <ol class="steps" style="--c:3">
+      <li>Fazer check-in.</li><li>Receber seu crachá.</li><li>Conferir sua posição.</li>
+      <li>Guardar seus pertences.</li><li>Retirar sua sacola de Staff.</li><li>Conferir seu voucher de almoço.</li>
+      <li>Receber seu walkie-talkie, quando aplicável.</li><li>Verificar se os equipamentos da sua função estão disponíveis.</li><li>Dirigir-se à Sala do Staff às 08h.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6 BRIEFING -->
+<section class="slide" data-title="08h00: briefing geral" data-chapter="Antes de abrir as portas" data-emoji="📣" style="--acc:var(--purple)">
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span><span class="num">Seção 05</span></div>
+    <h2>08h00: briefing geral</h2></header>
+  <div class="s-body">
+    <div class="pins"><span class="pin">📍 Sala do Staff</span><span class="pin">👥 Todos os voluntários devem estar presentes</span></div>
+    <div><p class="h">Durante o briefing, vamos reforçar</p>
+    <ul class="ticks" style="--c:4">
+      <li>Cronograma do evento.</li><li>Posições de cada voluntário.</li><li>Responsáveis por cada área.</li><li>Funcionamento dos walkie-talkies.</li>
+      <li>Canal de comunicação.</li><li>Pontos focais.</li><li>Funcionamento das salas.</li><li>Controle de tempo.</li>
+      <li>Procedimentos de emergência.</li><li>Credenciamento.</li><li>Entrada de participantes.</li><li>Achados e perdidos.</li>
+      <li>Primeiros socorros.</li><li>Almoço.</li><li>Foto oficial.</li><li>Desmontagem.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- 7 WALKIE -->
+<section class="slide" data-title="Comunicação por walkie-talkie" data-chapter="Comunicação e entrada" data-emoji="📻" style="--acc:var(--blue)">
+  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span><span class="num">Seção 06</span></div>
+    <h2>📻 Comunicação por walkie-talkie</h2><p class="sub">Os walkie-talkies já virão configurados.</p></header>
+  <div class="s-body">
+    <div class="grid" style="--c:2">
+      <div style="display:grid;gap:18px">
+        <div class="callout stop"><span class="ic">⚠️</span><div><strong>Não mexer na configuração dos aparelhos.</strong>Todos devem permanecer ligados durante todo o evento, exceto no descanso/almoço, quando houver substituição.</div></div>
+        <div><p class="h">Pontos focais</p>
+        <ul class="ticks" style="--c:2;--dot:var(--blue)"><li>Suportes de sala.</li><li>Responsáveis pelo credenciamento.</li><li>Suporte geral.</li><li>Outras posições estratégicas definidas pela organização.</li></ul></div>
+      </div>
+      <div style="display:grid;gap:18px">
+        <div class="radio">
+          <p class="h" style="margin:0">Como falar: sempre utilizar</p>
+          <div class="formula"><div><b>Quem</b><small>estou chamando</small></div><div><b>Onde</b><small>eu estou</small></div><div><b>O que precisa</b><small>direto ao ponto</small></div></div>
+          <div class="bubble">"Suporte Geral, aqui Sala 408. Precisamos de ajuda com o notebook."</div>
+          <div class="bubble">"Suporte Geral, aqui Credenciamento. Temos um problema com o ingresso de um participante."</div>
+        </div>
+        <div><p class="h">Evitar</p><ul class="no"><li>Conversas paralelas</li><li>Brincadeiras</li><li>Informações desnecessárias</li><li>Discussões pelo rádio</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 CREDENCIAMENTO -->
+<section class="slide" data-title="08h15: credenciamento" data-chapter="Comunicação e entrada" data-emoji="🎟️" style="--acc:var(--blue)">
+  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span><span class="num">Seção 07</span></div>
+    <h2>08h15: credenciamento</h2></header>
+  <div class="s-body">
+    <div class="pins"><span class="pin">📍 Área de Credenciamento</span><span class="pin">🕗 Início 08h15</span><span class="pin">⏱️ Totalmente operacional antes desse horário</span></div>
+    <div class="grid" style="--cols:.9fr 1.1fr" >
+      <div style="display:grid;gap:18px">
+        <div><p class="h">📱 Aplicativo: cada pessoa deve</p>
+        <ol class="steps" style="--c:1"><li>Ter o aplicativo instalado no celular.</li><li>Estar logada.</li><li>Ter login funcionando.</li><li>Ter o computador do credenciamento logado.</li><li>Testar o sistema antes das 08h15.</li></ol></div>
+      </div>
+      <div class="panel"><p class="h">📦 A caixa do credenciamento deve conter</p>
+        <ul class="ticks" style="--c:2"><li>Computadores.</li><li>Carregadores.</li><li>1 extensão.</li><li>5 carregadores portáteis.</li><li>Cabos: cada pessoa leva o seu.</li><li>Cronograma impresso.</li><li>Nome dos participantes impresso.</li><li>Crachás.</li><li>Materiais de identificação.</li><li>Canetas.</li><li>Caixa de achados e perdidos.</li><li>Kit de primeiros socorros.</li><li>Demais materiais para o atendimento.</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 CRACHÁS DO CREDENCIAMENTO + PROBLEMAS -->
+<section class="slide" data-title="Problemas no credenciamento" data-chapter="Comunicação e entrada" data-emoji="🚨" style="--acc:var(--red)">
+  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span><span class="num">Seções 07 e 08</span></div>
+    <h2>🚨 Problemas no credenciamento</h2></header>
+  <div class="s-body">
+    <div class="grid" style="--c:2">
+      <div style="display:grid;gap:18px">
+        <div class="callout info"><span class="ic">📻</span><div><strong>Problema com ingresso?</strong>Chamar <b>Fernanda dos Santos</b> pelo walkie-talkie.</div></div>
+        <div class="golden" style="--g:var(--red)"><small>Entrada sem ingresso: a orientação geral é</small><p>Ninguém entra sem ingresso.</p></div>
+        <p class="muted">Em situações excepcionais, falar com Fernanda dos Santos.</p>
+      </div>
+      <div style="display:grid;gap:18px">
+        <div class="callout stop"><span class="ic">⚠️</span><div><strong>Em alta demanda, a regra continua: sem ingresso = sem entrada.</strong>Não liberar participante por conta própria.</div></div>
+        <div><p class="h">🪪 Crachás: separar conforme a função</p>
+        <div class="badges"><div class="badge" style="--b:var(--blue)"><b>Participante</b></div><div class="badge" style="--b:var(--pumpkin)"><b>Staff</b></div><div class="badge" style="--b:var(--purple)"><b>Palestrante</b></div><div class="badge" style="--b:var(--green)"><b>Patrocinador</b></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 CANECAS -->
+<section class="slide" data-title="08h15: entrega das canecas" data-chapter="Comunicação e entrada" data-emoji="☕" style="--acc:var(--blue)">
+  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span><span class="num">Seção 09</span></div>
+    <h2>☕ 08h15: entrega das canecas</h2></header>
+  <div class="s-body">
+    <div class="pins"><span class="pin">📍 Credenciamento</span><span class="pin">👤 Responsável: Fran</span></div>
+    <div><p class="h">Procedimento</p>
+    <ol class="steps" style="--c:5"><li>Solicitar documento.</li><li>Conferir nome na lista impressa.</li><li>Confirmar a pessoa.</li><li>Entregar a caneca.</li><li>Registrar a retirada.</li></ol></div>
+    <div class="callout warn"><span class="ic">⚠️</span><div><strong>Importante</strong>
+      <ul><li>A lista será impressa.</li><li>Conferir documento.</li><li>Cada pessoa recebe sua caneca conforme a lista.</li><li>Não haverá canecas extras para venda.</li></ul></div></div>
+  </div>
+</section>
+
+<!-- 11 ABERTURA -->
+<section class="slide" data-title="09h00: abertura oficial" data-chapter="Comunicação e entrada" data-emoji="🎤" style="--acc:var(--blue)">
+  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span><span class="num">Seção 10</span></div>
+    <h2>09h00: abertura oficial</h2></header>
+  <div class="s-body">
+    <div class="pins"><span class="pin">📍 Auditório, Salão Comunal</span><span class="pin">💺 194 pessoas sentadas</span><span class="pin">📡 Transmissão síncrona para o pátio</span></div>
+    <div class="grid split" style="--cols:1.2fr .8fr">
+      <div><p class="h">Antes das 09h, o Auditório deve conferir</p>
+        <ul class="check" style="--c:2" data-list="abertura-auditorio">
+          <li><label><input type="checkbox"><span>Palco organizado</span></label></li>
+          <li><label><input type="checkbox"><span>Microfones funcionando</span></label></li>
+          <li><label><input type="checkbox"><span>Slides abertos</span></label></li>
+          <li><label><input type="checkbox"><span>Notebook funcionando</span></label></li>
+          <li><label><input type="checkbox"><span>Mesa de som funcionando</span></label></li>
+          <li><label><input type="checkbox"><span>Transmissão para o pátio funcionando</span></label></li>
+          <li><label><input type="checkbox"><span>Pessoas da abertura posicionadas</span></label></li>
+          <li><label><input type="checkbox"><span>Auditório organizado</span></label></li>
+          <li><label><input type="checkbox"><span>Pátio preparado</span></label></li>
+        </ul></div>
+      <div style="display:grid;gap:16px">
+        <div class="panel"><p class="h">🚪 Salas</p><p>As salas já estarão abertas antes da abertura. Participantes poderão assistir à abertura no auditório ou se acomodar antecipadamente nas salas.</p></div>
+        <div class="callout warn"><span class="ic">⏰</span><div>Por isso, todas as equipes de sala devem estar a postos <b>antes das 09h</b>.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 ESCALA -->
+<section class="slide" data-title="Escala geral" data-chapter="Equipes e espaços" data-emoji="🗺️" style="--acc:var(--pumpkin)">
+  <header class="s-head" style="margin-bottom:20px"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 11</span></div>
+    <h2>Escala geral</h2></header>
+  <div class="s-body">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Área</th><th>Responsável</th><th>Apresentação / Condução</th><th>Suporte</th><th>Mesa de som / Slides</th></tr></thead>
+        <tbody>
+          <tr><td><span class="sw" style="--s:var(--pumpkin)"></span>Auditório, Salão Comunal</td><td>Rafael Silveira</td><td>Fernanda, Gabriel, Giovane</td><td>Giovane</td><td>Rafael Silveira</td></tr>
+          <tr><td><span class="sw" style="--s:var(--purple)"></span>Trilha Magia, Sala 408</td><td>Jade</td><td>Jade, Gabriel Rebechi</td><td>Nathan</td><td class="dash">—</td></tr>
+          <tr><td><span class="sw" style="--s:var(--yellow)"></span>Trilha Lua Cheia, Sala 406</td><td>Gabi</td><td>Sandro, Gabi</td><td class="tbd">A definir</td><td class="dash">—</td></tr>
+          <tr><td><span class="sw" style="--s:var(--blue)"></span>Trilha Sentinela, Sala 409</td><td class="tbd">A definir</td><td class="tbd">A definir</td><td class="tbd">A definir</td><td class="tbd">A definir</td></tr>
+          <tr><td><span class="sw" style="--s:var(--green)"></span>Trilha Alquimia, Sala 410</td><td>Lucas</td><td>Mika, Lucas</td><td>Vinicius</td><td class="dash">—</td></tr>
+          <tr><td><span class="sw" style="--s:var(--red)"></span>Covil, Sala 401</td><td>Carol</td><td>Carol, Dani Castro</td><td>Natalie</td><td class="dash">—</td></tr>
+          <tr><td><span class="sw" style="--s:var(--moon)"></span>Credenciamento</td><td>Camila K</td><td>Gi Hossein, Bernardo</td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr><td><span class="sw" style="--s:var(--green)"></span>Patrocinadores</td><td>Tamires</td><td>Tati</td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr><td><span class="sw" style="--s:var(--pumpkin)"></span>Lounge, Pátio</td><td>Tanúbia</td><td>Tamires</td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr><td><span class="sw" style="--s:var(--moon)"></span>Entrega de Canecas</td><td>Fran</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr><td><span class="sw" style="--s:var(--red)"></span>Suporte Geral</td><td>Fernanda</td><td>Marcos, Guilherme</td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr><td><span class="sw" style="--s:var(--purple)"></span>Mídias</td><td>Annie</td><td>Micael, Annie, Alexandra</td><td class="dash">—</td><td class="dash">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 13 RESP. SALA -->
+<section class="slide" data-title="Responsabilidades dos responsáveis de sala" data-chapter="Equipes e espaços" data-emoji="🔑" style="--acc:var(--pumpkin)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 12</span></div>
+    <h2>Responsabilidades gerais dos responsáveis de sala</h2></header>
+  <div class="s-body">
+    <div><p class="h">O responsável pela sala é responsável por</p>
+    <ul class="ticks" style="--c:3"><li>Abrir a sala.</li><li>Fechar a sala.</li><li>Conferir a organização.</li><li>Conferir equipamentos.</li><li>Acompanhar a programação.</li><li>Garantir que o suporte esteja funcionando.</li><li>Resolver pequenas questões operacionais.</li><li>Acionar o Suporte Geral quando necessário.</li><li>Coordenar a desmontagem da sala.</li></ul></div>
+    <div class="panel"><p class="h">💡 Iluminação e ❄️ ar-condicionado</p>
+      <p style="margin-bottom:14px">O suporte de sala deve controlar a iluminação e o ar-condicionado. Caso haja problema:</p>
+      <div class="flow sm"><span>Suporte de sala</span><b>→</b><span>Suporte Geral pelo walkie-talkie</span></div></div>
+  </div>
+</section>
+
+<!-- 14 KIT -->
+<section class="slide" data-title="Kit operacional de cada sala" data-chapter="Equipes e espaços" data-emoji="🧰" style="--acc:var(--pumpkin)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 13</span></div>
+    <h2>Kit operacional de cada sala</h2><p class="sub">Cada sala terá sua própria Caixa de Responsabilidade.</p></header>
+  <div class="s-body">
+    <div class="grid" style="--c:4">
+      <div class="panel"><p class="h">💻 Equipamentos</p><ul class="ticks" style="--c:1;--dot:var(--blue)"><li>1 notebook.</li><li>Apresentações carregadas.</li><li>Carregador.</li><li>Adaptadores necessários.</li><li>1 passador de slides.</li><li>Pilhas reserva.</li></ul></div>
+      <div class="panel"><p class="h">⏱️ Controle de tempo</p><ul class="ticks" style="--c:1;--dot:var(--yellow)"><li>2 timers.</li><li>Placas de tempo.</li></ul></div>
+      <div class="panel"><p class="h">📻 Comunicação</p><ul class="ticks" style="--c:1;--dot:var(--red)"><li>1 walkie-talkie.</li></ul></div>
+      <div class="panel"><p class="h">📋 Organização</p><ul class="ticks" style="--c:1;--dot:var(--green)"><li>Prancheta.</li><li>Cronograma impresso da sala.</li><li>To-do da sala.</li></ul></div>
+    </div>
+    <div class="callout stop"><span class="ic">⚠️</span><div><strong>Não há equipamento reserva.</strong>Cada sala e o credenciamento terão sua própria caixa com os materiais necessários.</div></div>
+  </div>
+</section>
+
+<!-- 15 TEMPO -->
+<section class="slide" data-title="Controle de tempo" data-chapter="Equipes e espaços" data-emoji="⏱️" style="--acc:var(--pumpkin)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 14</span></div>
+    <h2>⏱️ Controle de tempo</h2><p class="sub">Cada sala terá dois timers.</p></header>
+  <div class="s-body">
+    <div class="grid" style="--c:2">
+      <div class="panel"><p class="h">Timer 1</p><p>Fica com o suporte de sala.</p></div>
+      <div class="panel"><p class="h">Timer 2</p><p>É entregue ao palestrante.</p></div>
+    </div>
+    <div><p class="h">Antes de cada atividade</p>
+    <div class="flow sm"><span>Conferir o tempo previsto</span><b>→</b><span>Configurar o timer do suporte</span><b>→</b><span>Configurar o timer do palestrante</span><b>→</b><span>Entregar o timer</span><b>→</b><span>Iniciar a sessão</span></div></div>
+    <div><p class="h">Placas de tempo: utilizar conforme necessário</p>
+    <div class="badges"><div class="badge big" style="--b:var(--green)"><b>15 min</b></div><div class="badge big" style="--b:var(--yellow)"><b>10 min</b></div><div class="badge big" style="--b:var(--pumpkin)"><b>5 min</b></div><div class="badge big" style="--b:var(--red)"><b>Encerramento</b></div></div></div>
+  </div>
+</section>
+
+<!-- 16 REGRA PROGRAMAÇÃO -->
+<section class="slide" data-title="Regra de programação" data-chapter="Equipes e espaços" data-emoji="⚠️" style="--acc:var(--red)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 15</span></div>
+    <h2>⚠️ Regra de programação</h2></header>
+  <div class="s-body">
+    <div class="golden" style="--g:var(--red)"><small>A programação publicada deve ser respeitada</small><p style="font-size:56px">Não há alteração da programação.</p></div>
+    <div class="grid" style="--c:2">
+      <div><p class="h">Palestrante atrasou?</p><ul class="no"><li>A sessão não é estendida</li><li>Não atrasar a próxima palestra</li><li>Não alterar os horários por conta própria</li></ul></div>
+      <div class="callout info"><span class="ic">📻</span><div><strong>O que fazer?</strong>Chamar <b>Fernanda dos Santos</b> pelo walkie-talkie. A organização fará o encaminhamento necessário.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 AUDITÓRIO -->
+<section class="slide" data-title="Auditório, Salão Comunal" data-chapter="Equipes e espaços" data-emoji="🎙️" style="--acc:var(--pumpkin)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 16</span></div>
+    <h2>Auditório, Salão Comunal</h2></header>
+  <div class="s-body">
+    <div class="area" style="--a:var(--pumpkin)">
+      <div class="area-top"><span class="emo">🎤</span><div><span class="room">Salão Comunal</span><b>Auditório</b></div></div>
+      <div class="roles"><div class="role"><small>Responsável</small><span>Rafael Silveira</span></div><div class="role"><small>Condução</small><span>Fernanda, Gabriel, Giovane</span></div><div class="role"><small>Suporte</small><span>Giovane</span></div><div class="role"><small>Mesa de som / Slides</small><span>Rafael Silveira</span></div></div>
+    </div>
+    <div class="grid split" style="--cols:1.3fr .7fr">
+      <div><p class="h">Responsabilidades</p><ul class="ticks" style="--c:4"><li>Abertura.</li><li>Palco.</li><li>Microfones.</li><li>Slides.</li><li>Áudio.</li><li>Transmissão para o pátio.</li><li>Controle da apresentação.</li><li>Comunicação com a organização.</li></ul></div>
+      <div class="panel"><p class="h">📡 Transmissão</p><p class="muted" style="margin-bottom:10px">A mesa de som do auditório é responsável por:</p><ul class="ticks" style="--c:1;--dot:var(--blue)"><li>Transmissão do auditório → pátio.</li><li>Áudio do pátio.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 TRILHAS -->
+<section class="slide" data-title="Trilhas: Magia, Lua Cheia, Sentinela e Alquimia" data-chapter="Equipes e espaços" data-emoji="🔮" style="--acc:var(--purple)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seções 17 a 20</span></div>
+    <h2>As quatro trilhas</h2></header>
+  <div class="s-body">
+    <div class="grid stretch" style="--c:4">
+      <div class="area" style="--a:var(--purple)">
+        <div class="area-top"><span class="emo">🪄</span><div><span class="room">Sala 408</span><b>Trilha Magia</b></div></div>
+        <div class="roles" style="--r:1"><div class="role"><small>Responsável</small><span>Jade</span></div><div class="role"><small>Condução</small><span>Jade + Gabriel Rebechi</span></div><div class="role"><small>Suporte</small><span>Nathan</span></div></div>
+        <p class="muted" style="font-size:15px;margin-top:12px">O suporte é responsável por:</p>
+        <ul class="mini" style="margin-top:6px"><li>Tempo</li><li>Slides</li><li>Equipamentos</li><li>Iluminação</li><li>Ar-condicionado</li><li>Comunicação via rádio</li></ul>
+      </div>
+      <div class="area" style="--a:var(--yellow)">
+        <div class="area-top"><span class="emo">🌕</span><div><span class="room">Sala 406</span><b>Trilha Lua Cheia</b></div></div>
+        <div class="roles" style="--r:1"><div class="role"><small>Responsável</small><span>Gabi</span></div><div class="role"><small>Condução</small><span>Sandro + Gabi</span></div><div class="role tbd"><small>Suporte</small><span>A definir</span></div></div>
+      </div>
+      <div class="area" style="--a:var(--blue)">
+        <div class="area-top"><span class="emo">🛡️</span><div><span class="room">Sala 409</span><b>Trilha Sentinela</b></div></div>
+        <div class="roles" style="--r:1"><div class="role tbd"><small>Responsável</small><span>A definir</span></div><div class="role tbd"><small>Condução</small><span>A definir</span></div><div class="role tbd"><small>Suporte</small><span>A definir</span></div><div class="role tbd"><small>Mesa de som / Slides</small><span>A definir</span></div></div>
+      </div>
+      <div class="area" style="--a:var(--green)">
+        <div class="area-top"><span class="emo">⚗️</span><div><span class="room">Sala 410</span><b>Trilha Alquimia</b></div></div>
+        <div class="roles" style="--r:1"><div class="role"><small>Responsável</small><span>Lucas</span></div><div class="role"><small>Condução</small><span>Mika + Lucas</span></div><div class="role"><small>Suporte</small><span>Vinicius</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 COVIL -->
+<section class="slide" data-title="Covil, Sala 401" data-chapter="Equipes e espaços" data-emoji="🐺" style="--acc:var(--red)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 21</span></div>
+    <h2>🐺 Covil</h2></header>
+  <div class="s-body">
+    <div class="area" style="--a:var(--red)">
+      <div class="area-top"><span class="emo">🐺</span><div><span class="room">Sala 401</span><b>Covil: networking estruturado</b></div></div>
+      <div class="roles" style="--r:3"><div class="role"><small>Responsável</small><span>Carol</span></div><div class="role"><small>Condução</small><span>Carol, Dani Castro</span></div><div class="role"><small>Suporte</small><span>Natalie</span></div></div>
+    </div>
+    <div><p class="h">Além da organização tradicional de sala</p>
+    <ul class="ticks" style="--c:3;--dot:var(--red)"><li>Receber participantes.</li><li>Orientar a dinâmica.</li><li>Estimular interação.</li><li>Organizar networking.</li><li>Apoiar facilitadores.</li><li>Controlar o fluxo da atividade.</li></ul></div>
+  </div>
+</section>
+
+<!-- 20 PATROCINADORES -->
+<section class="slide" data-title="Patrocinadores" data-chapter="Equipes e espaços" data-emoji="🤝" style="--acc:var(--green)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 22</span></div>
+    <h2>Patrocinadores</h2></header>
+  <div class="s-body">
+    <div class="area" style="--a:var(--green)">
+      <div class="area-top"><span class="emo">🤝</span><div><span class="room">Espaço dos patrocinadores</span><b>Patrocinadores</b></div></div>
+      <div class="roles" style="--r:2"><div class="role"><small>Responsável</small><span>Tamires</span></div><div class="role"><small>Condução</small><span>Tati</span></div></div>
+    </div>
+    <div><p class="h">Responsabilidades</p>
+    <ul class="ticks" style="--c:5;--dot:var(--green)"><li>Apoiar patrocinadores.</li><li>Conferir estandes.</li><li>Orientar representantes.</li><li>Resolver necessidades.</li><li>Comunicar problemas.</li></ul></div>
+    <div class="callout"><span class="ic">🍴</span><div><strong>Almoço</strong>Os patrocinadores não terão acompanhamento específico durante o almoço. Eles almoçam normalmente no pátio e, após o almoço, retornam às suas posições.</div></div>
+  </div>
+</section>
+
+<!-- 21 LOUNGE -->
+<section class="slide" data-title="Lounge, Pátio e espaço GDGs" data-chapter="Equipes e espaços" data-emoji="🦆" style="--acc:var(--pumpkin)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 23</span></div>
+    <h2>Lounge, Pátio e espaço GDGs</h2></header>
+  <div class="s-body">
+    <div class="area" style="--a:var(--pumpkin)">
+      <div class="area-top"><span class="emo">🎶</span><div><span class="room">Pátio</span><b>Lounge e espaço GDGs</b></div></div>
+      <div class="roles" style="--r:2"><div class="role"><small>Responsável</small><span>Tanúbia</span></div><div class="role"><small>Condução</small><span>Tamires</span></div></div>
+    </div>
+    <div class="grid" style="--c:2">
+      <div class="panel"><p class="h">Materiais</p><ul class="ticks" style="--c:1"><li>Kit de primeiros socorros.</li><li>Patos de brinde para retirada.</li><li>Caixa de som.</li><li>Materiais da dinâmica/experiência.</li><li>Sinalização necessária.</li></ul></div>
+      <div class="panel"><p class="h">Responsabilidades</p><ul class="ticks" style="--c:1"><li>Organização do espaço.</li><li>Orientação dos participantes.</li><li>Apoio às experiências.</li><li>Apoio à transmissão da abertura.</li><li>Comunicação com Suporte Geral.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 MÍDIAS -->
+<section class="slide" data-title="Mídias" data-chapter="Equipes e espaços" data-emoji="📸" style="--acc:var(--purple)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 24</span></div>
+    <h2>Mídias</h2></header>
+  <div class="s-body">
+    <div class="area" style="--a:var(--purple)">
+      <div class="area-top"><span class="emo">📸</span><div><span class="room">Cobertura</span><b>Mídias</b></div></div>
+      <div class="roles" style="--r:2"><div class="role"><small>Responsável</small><span>Annie</span></div><div class="role"><small>Equipe</small><span>Micael, Annie, Alexandra</span></div></div>
+    </div>
+    <div><p class="h">Prioridades: registrar</p>
+    <ul class="ticks" style="--c:7;--dot:var(--purple)"><li>Chegada.</li><li>Credenciamento.</li><li>Abertura.</li><li>Público.</li><li>Salas.</li><li>Palestrantes.</li><li>Networking.</li><li>Patrocinadores.</li><li>DevFestPoaGAME.</li><li>Lounge.</li><li>Bastidores.</li><li>Staff.</li><li>Premiações.</li><li>Encerramento.</li></ul></div>
+    <div class="callout warn"><span class="ic">🎬</span><div><strong>Regra</strong>A cobertura não deve atrapalhar palestras, workshops, participantes nem a operação das salas.</div></div>
+  </div>
+</section>
+
+<!-- 23 SUPORTE GERAL + OCORRÊNCIAS -->
+<section class="slide" data-title="Suporte Geral e ocorrências" data-chapter="Equipes e espaços" data-emoji="🛠️" style="--acc:var(--red)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seções 25 e 26</span></div>
+    <h2>Suporte Geral e ocorrências</h2><p class="sub">O Suporte Geral funciona como a central de operações do evento.</p></header>
+  <div class="s-body">
+    <div class="grid split" style="--cols:1.15fr .85fr">
+      <div style="display:grid;gap:18px">
+        <div class="area" style="--a:var(--red)">
+          <div class="area-top"><span class="emo">🛠️</span><div><span class="room">Central de operações</span><b>Suporte Geral</b></div></div>
+          <div class="roles" style="--r:2"><div class="role"><small>Responsável</small><span>Fernanda dos Santos</span></div><div class="role"><small>Equipe</small><span>Marcos, Guilherme</span></div></div>
+        </div>
+        <div><p class="h">Atende</p><ul class="mini" style="margin:0"><li>Problemas de sala</li><li>Problemas técnicos</li><li>Participantes</li><li>Palestrantes</li><li>Patrocinadores</li><li>Credenciamento</li><li>Energia</li><li>Internet</li><li>Emergências</li><li>Ocorrências</li><li>Problemas de infraestrutura</li></ul></div>
+      </div>
+      <div class="panel" style="display:grid;gap:14px">
+        <p class="h" style="margin:0">🚩 Ocorrências</p>
+        <p>Qualquer voluntário pode identificar e comunicar uma ocorrência.</p>
+        <div class="callout info"><span class="ic">📻</span><div><strong>Como fazer</strong>Chamar o Suporte Geral pelo walkie-talkie.</div></div>
+        <p><b>Marcos e Guilherme</b> atuam diretamente na resolução das ocorrências.</p>
+        <p><b>Fernanda</b> é responsável pelas decisões e encaminhamentos que exigirem coordenação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 24 PALESTRANTE ATRASADO + ENERGIA -->
+<section class="slide" data-title="Palestrante atrasado e energia" data-chapter="Quando algo sai do previsto" data-emoji="🕯️" style="--acc:var(--red)">
+  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span><span class="num">Seções 27 e 28</span></div>
+    <h2>Palestrante atrasado e energia</h2></header>
+  <div class="s-body">
+    <div class="grid stretch" style="--c:2">
+      <div class="panel" style="display:grid;gap:14px;align-content:start">
+        <p class="h" style="margin:0">🎤 Palestrante atrasado</p>
+        <p class="muted">Caso o palestrante não esteja presente:</p>
+        <ol class="steps" style="--c:1"><li>Responsável/suporte da sala verifica.</li><li>Se necessário, chama Fernanda pelo walkie-talkie.</li><li>Fernanda faz o encaminhamento.</li></ol>
+        <div class="callout stop"><span class="ic">⚠️</span><div><strong>Não alterar a programação.</strong>Atrasos não geram extensão de horário.</div></div>
+      </div>
+      <div class="panel" style="display:grid;gap:14px;align-content:start">
+        <p class="h" style="margin:0">🔌 Energia e infraestrutura</p>
+        <p class="muted">Se houver:</p>
+        <ul class="ticks" style="--c:2;--dot:var(--yellow)"><li>Falta de energia.</li><li>Tomada sem funcionamento.</li><li>Problema elétrico.</li><li>Problema estrutural.</li></ul>
+        <div class="callout stop"><span class="ic">🚫</span><div><strong>Não tentar resolver problemas elétricos por conta própria.</strong>Chamar o Suporte Geral pelo walkie-talkie.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 25 INTERNET + FACULDADE -->
+<section class="slide" data-title="Internet e Faculdade Dom Bosco" data-chapter="Quando algo sai do previsto" data-emoji="📶" style="--acc:var(--red)">
+  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span><span class="num">Seções 29 e 30</span></div>
+    <h2>Internet e Faculdade Dom Bosco</h2></header>
+  <div class="s-body">
+    <div class="grid stretch" style="--c:2">
+      <div class="panel" style="display:grid;gap:14px;align-content:start">
+        <p class="h" style="margin:0">📶 Internet</p>
+        <p>Cada equipe deve utilizar os recursos disponíveis na sua área.</p>
+        <div class="callout warn"><span class="ic">⚠️</span><div><strong>Plano B</strong>Sempre orientar que, se possível, os voluntários tenham o 5G/dados móveis funcionando no celular. Isso pode ser necessário em caso de instabilidade da internet.</div></div>
+      </div>
+      <div class="panel" style="display:grid;gap:14px;align-content:start">
+        <p class="h" style="margin:0">🏫 Faculdade Dom Bosco</p>
+        <div class="roles" style="--r:1"><div class="role"><small>Contato com a Faculdade</small><span>Fernanda dos Santos</span></div><div class="role"><small>Portaria / Segurança</small><span>Fernanda será responsável pelo contato</span></div></div>
+        <div class="callout info"><span class="ic">📻</span><div>Solicitar walkie-talkie para comunicação com a Faculdade/segurança, conforme disponibilidade.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 26 EMERGÊNCIAS -->
+<section class="slide" data-title="Emergências" data-chapter="Quando algo sai do previsto" data-emoji="🚑" style="--acc:var(--red)">
+  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span><span class="num">Seção 31</span></div>
+    <h2>🚨 Emergências</h2><p class="sub">Responsável: Fernanda dos Santos</p></header>
+  <div class="s-body">
+    <div class="grid" style="--c:2">
+      <div><p class="h">Em caso de emergência</p>
+        <ol class="steps" style="--c:1"><li>Manter a calma.</li><li>Identificar a localização.</li><li>Comunicar pelo walkie-talkie.</li><li>Acionar Fernanda.</li><li>Seguir as orientações da Faculdade Dom Bosco.</li></ol></div>
+      <div class="panel"><p class="h">🚪 Evacuação</p>
+        <p style="margin-bottom:14px">O ponto de encontro será definido conforme as normas e sinalizações da Faculdade Dom Bosco. Os voluntários devem:</p>
+        <ul class="ticks" style="--c:1;--dot:var(--green)"><li>Conhecer as saídas.</li><li>Seguir as placas.</li><li>Orientar participantes conforme orientação da Faculdade.</li><li style="--dot:var(--red)">Não inventar rotas alternativas.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 27 SOCORROS + ACHADOS + FOTO -->
+<section class="slide" data-title="Primeiros socorros, achados e perdidos e foto oficial" data-chapter="Quando algo sai do previsto" data-emoji="🩹" style="--acc:var(--red)">
+  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span><span class="num">Seções 32 a 34</span></div>
+    <h2>Primeiros socorros, achados e perdidos e foto</h2></header>
+  <div class="s-body">
+    <div class="grid stretch" style="--c:3">
+      <div class="panel" style="display:grid;gap:12px;align-content:start">
+        <span class="fi">🩹</span><p class="h" style="margin:0">Kit de primeiros socorros</p>
+        <span class="pin" style="justify-self:start">📍 Credenciamento</span>
+        <p>Caso seja necessário, chamar o responsável pelo credenciamento ou o Suporte Geral.</p>
+      </div>
+      <div class="panel" style="display:grid;gap:12px;align-content:start">
+        <span class="fi">🎒</span><p class="h" style="margin:0">Achados e perdidos</p>
+        <span class="pin" style="justify-self:start">📍 Credenciamento</span>
+        <p>Todos os objetos encontrados devem ser encaminhados para o credenciamento, na caixa identificada como <b>ACHADOS E PERDIDOS</b>.</p>
+        <p class="muted">Não deixar objetos espalhados pela Sala do Staff ou outras áreas.</p>
+      </div>
+      <div class="panel" style="display:grid;gap:12px;align-content:start">
+        <span class="fi">📸</span><p class="h" style="margin:0">Foto oficial do Staff</p>
+        <div class="roles" style="--r:1"><div class="role"><small>Quando</small><span>Antes do almoço</span></div><div class="role"><small>Onde</small><span>Ao lado do credenciamento</span></div><div class="role"><small>Responsável</small><span>Mídias</span></div></div>
+        <p class="muted">A organização comunicará pelo walkie-talkie o horário exato. As áreas críticas não podem ficar sem cobertura: cada responsável organiza seu revezamento para que a posição continue funcionando.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 28 ALMOÇO -->
+<section class="slide" data-title="Almoço" data-chapter="Quando algo sai do previsto" data-emoji="🍴" style="--acc:var(--red)">
+  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span><span class="num">Seção 35</span></div>
+    <h2>🍴 Almoço</h2><p class="sub">O almoço será organizado por revezamento.</p></header>
+  <div class="s-body">
+    <div class="golden" style="--g:var(--red)"><small>Regra</small><p>Nenhuma área crítica pode ficar sem cobertura.</p></div>
+    <div><p class="h">Cada responsável deve combinar previamente</p>
+    <div class="flow"><span>Quem sai</span><b>→</b><span>Quem cobre</span><b>→</b><span>Horário</span></div></div>
+    <div class="grid" style="--c:2">
+      <div class="panel"><p class="h">👻 Staff</p><p>O voucher do almoço estará na sacola individual do Staff.</p></div>
+      <div class="panel"><p class="h">🤝 Patrocinadores</p><p>Almoçam normalmente no pátio e depois retornam às suas posições.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 29 SALA DO STAFF -->
+<section class="slide" data-title="Sala do Staff" data-chapter="Base e materiais" data-emoji="☕" style="--acc:var(--green)">
+  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span><span class="num">Seção 36</span></div>
+    <h2>🧑‍💻 Sala do Staff</h2><p class="sub">A Sala do Staff será a base operacional.</p></header>
+  <div class="s-body">
+    <div><p class="h">Deve conter</p>
+    <ul class="ticks" style="--c:4;--dot:var(--green)"><li>Coffee break durante todo o dia.</li><li>Café.</li><li>Água.</li><li>Energéticos.</li><li>Sacolas individuais.</li><li>Mimos.</li><li>Vouchers de almoço.</li><li>Materiais extras.</li><li>Cronograma geral.</li><li>Materiais recolhidos das salas.</li><li>Caixas desmontadas/recolhidas.</li></ul></div>
+    <div class="callout good"><span class="ic">🧹</span><div><strong>Regra</strong>Manter a sala organizada durante todo o evento.</div></div>
+  </div>
+</section>
+
+<!-- 30 CAIXAS -->
+<section class="slide" data-title="Caixas operacionais" data-chapter="Base e materiais" data-emoji="📦" style="--acc:var(--green)">
+  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span><span class="num">Seção 37</span></div>
+    <h2>📦 Caixas operacionais</h2><p class="sub">Cada posição que possuir materiais deve manter tudo dentro de sua respectiva caixa.</p></header>
+  <div class="s-body">
+    <div class="grid" style="--c:2">
+      <div class="panel"><p class="h">Caixa de sala</p><ul class="ticks" style="--c:3;--dot:var(--blue)"><li>Notebook.</li><li>Carregador.</li><li>Passador.</li><li>Pilhas.</li><li>Timers.</li><li>Placas.</li><li>Walkie-talkie.</li><li>Prancheta.</li><li>Cronograma.</li></ul></div>
+      <div class="panel"><p class="h">Caixa de credenciamento</p><ul class="ticks" style="--c:3;--dot:var(--green)"><li>Equipamentos.</li><li>Carregadores.</li><li>5 carregadores portáteis.</li><li>Cabos.</li><li>Extensão.</li><li>Listas.</li><li>Crachás.</li><li>Kit de primeiros socorros.</li><li>Achados e perdidos.</li></ul></div>
+    </div>
+    <div class="callout stop"><span class="ic">⚠️</span><div><strong>Não existem equipamentos extras/reserva.</strong>Cuidar dos materiais como responsabilidade da equipe.</div></div>
+  </div>
+</section>
+
+<!-- 31 IMPRESSOS + CRACHÁS -->
+<section class="slide" data-title="Materiais impressos e crachás" data-chapter="Base e materiais" data-emoji="🪪" style="--acc:var(--green)">
+  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span><span class="num">Seções 38 e 39</span></div>
+    <h2>Materiais impressos e crachás</h2></header>
+  <div class="s-body">
+    <div class="grid" style="--c:2">
+      <div style="display:grid;gap:16px">
+        <div><p class="h">📋 Devem estar disponíveis</p>
+        <ul class="ticks" style="--c:1"><li>Cronograma geral impresso.</li><li>Cronograma de cada sala.</li><li>Nome dos participantes impresso.</li><li>Listas de canecas.</li><li>Materiais necessários para credenciamento.</li></ul></div>
+        <div class="grid" style="--c:2;gap:12px">
+          <div class="callout warn"><span class="ic">📁</span><div><strong>Papéis importantes</strong>Não jogar fora. Ao final, vão para a Sala do Staff.</div></div>
+          <div class="callout"><span class="ic">🗑️</span><div><strong>Papéis de descarte</strong>Sem necessidade de arquivo podem ir ao lixo.</div></div>
+        </div>
+      </div>
+      <div><p class="h">🪪 Crachás conforme a posição</p>
+        <div class="badges" style="display:grid;grid-template-columns:1fr 1fr">
+          <div class="badge" style="--b:var(--blue)"><b>Participante</b><small>Identificação do público.</small></div>
+          <div class="badge" style="--b:var(--pumpkin)"><b>Staff</b><small>Identificação dos voluntários.</small></div>
+          <div class="badge" style="--b:var(--purple)"><b>Palestrante</b><small>Identificação dos speakers.</small></div>
+          <div class="badge" style="--b:var(--green)"><b>Patrocinador</b><small>Identificação dos representantes das empresas.</small></div>
+        </div>
+        <p class="muted" style="margin-top:14px">A entrega deve ser organizada antes da abertura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 32 DESMONTAGEM SALAS -->
+<section class="slide" data-title="Desmontagem das salas" data-chapter="Base e materiais" data-emoji="🧹" style="--acc:var(--green)">
+  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span><span class="num">Seção 40</span></div>
+    <h2>🧹 Desmontagem das salas</h2><p class="sub">Começa ao final da última palestra/atividade da respectiva sala. Responsáveis: responsável da sala + suporte de sala.</p></header>
+  <div class="s-body">
+    <ol class="steps" style="--c:4"><li>Conferir todos os materiais.</li><li>Recolher notebook.</li><li>Recolher carregador.</li><li>Recolher passador.</li><li>Recolher pilhas.</li><li>Recolher timers.</li><li>Recolher placas.</li><li>Recolher walkie-talkie.</li><li>Recolher prancheta.</li><li>Conferir papéis importantes.</li><li>Colocar tudo dentro da caixa.</li><li>Levar a caixa para a Sala do Staff.</li><li>Depois, descer para o Auditório.</li></ol>
+    <div><p class="h">Descarte</p>
+    <div class="badges"><div class="badge" style="--b:var(--faint)"><b>Papéis sem importância</b><small>→ lixo</small></div><div class="badge" style="--b:var(--faint)"><b>Decorações descartáveis</b><small>→ lixo</small></div><div class="badge" style="--b:var(--pumpkin)"><b>Documentos importantes</b><small>→ Sala do Staff</small></div></div></div>
+  </div>
+</section>
+
+<!-- 33 DESMONTAGEM CRED + GERAL -->
+<section class="slide" data-title="Desmontagem do credenciamento e geral" data-chapter="Base e materiais" data-emoji="🧾" style="--acc:var(--green)">
+  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span><span class="num">Seções 41 e 42</span></div>
+    <h2>Desmontagem do credenciamento e geral</h2></header>
+  <div class="s-body">
+    <div class="grid split" style="--cols:1.1fr .9fr">
+      <div><p class="h">🧾 Credenciamento encerra às 16h. Após o encerramento:</p>
+        <ol class="steps" style="--c:2"><li>Guardar equipamentos.</li><li>Guardar carregadores.</li><li>Guardar carregadores portáteis.</li><li>Guardar cabos.</li><li>Guardar extensão.</li><li>Guardar listas.</li><li>Guardar crachás restantes.</li><li>Guardar materiais.</li><li>Recolher achados e perdidos.</li><li>Guardar kit de primeiros socorros.</li><li>Colocar tudo na caixa.</li><li>Levar a caixa para a Sala do Staff.</li></ol></div>
+      <div style="display:grid;gap:14px">
+        <div class="panel"><p class="h">🏗️ Desmontagem geral</p><p class="muted" style="margin-bottom:10px">O Suporte Geral (Guilherme e Marcos) auxilia na retirada dos itens maiores e pode apoiar na:</p>
+          <ul class="mini" style="margin:0"><li>Retirada de banners</li><li>Organização de mesas</li><li>Guarda de estruturas</li><li>Transporte de materiais</li><li>Organização final dos espaços</li></ul></div>
+        <div class="callout warn"><span class="ic">📌</span><div><strong>Importante</strong>Os responsáveis de cada área continuam responsáveis por seus próprios materiais. O Suporte Geral auxilia na logística, não substitui a conferência de cada equipe.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 34 CHECKLIST ABERTURA -->
+<section class="slide" data-title="Checklist de abertura de cada sala" data-chapter="Checklists e pendências" data-emoji="✅" style="--acc:var(--yellow)">
+  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span><span class="num">Seção 43</span></div>
+    <h2>Checklist de abertura de cada sala</h2><p class="sub">Antes das 09h.</p></header>
+  <div class="s-body">
+    <ul class="check" style="--c:4" data-list="abertura-sala">
+      <li><label><input type="checkbox"><span>Sala aberta</span></label></li>
+      <li><label><input type="checkbox"><span>Cadeiras organizadas</span></label></li>
+      <li><label><input type="checkbox"><span>Iluminação funcionando</span></label></li>
+      <li><label><input type="checkbox"><span>Ar-condicionado funcionando</span></label></li>
+      <li><label><input type="checkbox"><span>Notebook ligado</span></label></li>
+      <li><label><input type="checkbox"><span>Apresentações conferidas</span></label></li>
+      <li><label><input type="checkbox"><span>Carregador conectado</span></label></li>
+      <li><label><input type="checkbox"><span>Adaptadores disponíveis</span></label></li>
+      <li><label><input type="checkbox"><span>Passador funcionando</span></label></li>
+      <li><label><input type="checkbox"><span>Pilhas reserva</span></label></li>
+      <li><label><input type="checkbox"><span>Timer do suporte</span></label></li>
+      <li><label><input type="checkbox"><span>Timer do palestrante</span></label></li>
+      <li><label><input type="checkbox"><span>Placas de tempo</span></label></li>
+      <li><label><input type="checkbox"><span>Walkie-talkie funcionando</span></label></li>
+      <li><label><input type="checkbox"><span>Prancheta</span></label></li>
+      <li><label><input type="checkbox"><span>Cronograma impresso</span></label></li>
+      <li><label><input type="checkbox"><span>Próxima sessão conferida</span></label></li>
+      <li><label><input type="checkbox"><span>Palestrante localizado</span></label></li>
+      <li><label><input type="checkbox"><span>Microfone testado, se houver</span></label></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 35 CHECKLIST ENCERRAMENTO + FINAL -->
+<section class="slide" data-title="Checklists de encerramento e final do Staff" data-chapter="Checklists e pendências" data-emoji="🏁" style="--acc:var(--yellow)">
+  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span><span class="num">Seções 44 e 45</span></div>
+    <h2>Encerramento da sala e checklist final</h2></header>
+  <div class="s-body">
+    <div class="grid split" style="--cols:1.25fr .75fr">
+      <div style="display:grid;gap:12px"><p class="h" style="margin:0">Checklist de encerramento de cada sala</p>
+        <ul class="check" style="--c:2" data-list="encerramento-sala">
+          <li><label><input type="checkbox"><span>Última atividade encerrada</span></label></li>
+          <li><label><input type="checkbox"><span>Notebook guardado</span></label></li>
+          <li><label><input type="checkbox"><span>Carregador guardado</span></label></li>
+          <li><label><input type="checkbox"><span>Passador guardado</span></label></li>
+          <li><label><input type="checkbox"><span>Pilhas recolhidas</span></label></li>
+          <li><label><input type="checkbox"><span>Timers recolhidos</span></label></li>
+          <li><label><input type="checkbox"><span>Placas recolhidas</span></label></li>
+          <li><label><input type="checkbox"><span>Walkie-talkie recolhido</span></label></li>
+          <li><label><input type="checkbox"><span>Prancheta recolhida</span></label></li>
+          <li><label><input type="checkbox"><span>Cronograma recolhido</span></label></li>
+          <li><label><input type="checkbox"><span>Documentos importantes separados</span></label></li>
+          <li><label><input type="checkbox"><span>Sala conferida</span></label></li>
+          <li><label><input type="checkbox"><span>Caixa fechada</span></label></li>
+          <li><label><input type="checkbox"><span>Caixa levada para Sala do Staff</span></label></li>
+          <li><label><input type="checkbox"><span>Ocorrências comunicadas</span></label></li>
+        </ul></div>
+      <div style="display:grid;gap:12px"><p class="h" style="margin:0">Final do Staff: antes de deixar o evento</p>
+        <ul class="check" style="--c:1" data-list="final-staff">
+          <li><label><input type="checkbox"><span>Minha área foi desmontada?</span></label></li>
+          <li><label><input type="checkbox"><span>Minha caixa foi entregue?</span></label></li>
+          <li><label><input type="checkbox"><span>Equipamentos foram conferidos?</span></label></li>
+          <li><label><input type="checkbox"><span>Walkie-talkie foi devolvido?</span></label></li>
+          <li><label><input type="checkbox"><span>Materiais importantes foram guardados?</span></label></li>
+          <li><label><input type="checkbox"><span>Lixo foi descartado?</span></label></li>
+          <li><label><input type="checkbox"><span>Objetos esquecidos foram encaminhados?</span></label></li>
+          <li><label><input type="checkbox"><span>Alguma ocorrência precisa ser comunicada?</span></label></li>
+          <li><label><input type="checkbox"><span>Minha área está liberada?</span></label></li>
+        </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 36 PONTOS FOCAIS -->
+<section class="slide" data-title="Pontos focais" data-chapter="Checklists e pendências" data-emoji="👑" style="--acc:var(--yellow)">
+  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span><span class="num">Seção 46</span></div>
+    <h2>Pontos focais</h2></header>
+  <div class="s-body">
+    <div class="grid stretch" style="--c:3">
+      <div class="panel" style="border-color:rgba(255,138,31,.4)"><span class="fi">👑</span><p class="muted" style="font-size:16px">Coordenação geral</p><div class="who">Fernanda dos Santos</div>
+        <ul class="ticks" style="--c:1"><li>Decisões operacionais.</li><li>Emergências.</li><li>Faculdade Dom Bosco.</li><li>Segurança/portaria.</li><li>Palestrantes atrasados.</li><li>Problemas de ingresso que necessitem exceção.</li><li>Alterações/encaminhamentos operacionais.</li></ul></div>
+      <div class="panel" style="border-color:rgba(234,67,53,.4)"><span class="fi">🛠️</span><p class="muted" style="font-size:16px">Suporte geral</p><div class="who">Marcos + Guilherme</div>
+        <ul class="ticks" style="--c:1;--dot:var(--red)"><li>Apoio operacional.</li><li>Ocorrências.</li><li>Infraestrutura.</li><li>Energia.</li><li>Transporte de materiais.</li><li>Apoio às equipes.</li></ul></div>
+      <div class="panel" style="border-color:rgba(66,133,244,.4)"><span class="fi">📻</span><p class="muted" style="font-size:16px">Comunicação</p><div class="who">Suportes de sala + Credenciamento + Suporte Geral</div>
+        <p class="muted">São os principais pontos de comunicação via walkie-talkie.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 37 REGRAS RÁPIDAS -->
+<section class="slide" data-title="Regras rápidas para o Staff" data-chapter="Checklists e pendências" data-emoji="⚡" style="--acc:var(--yellow)">
+  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span><span class="num">Seção 47</span></div>
+    <h2>⚡ Regras rápidas para o Staff</h2></header>
+  <div class="s-body">
+    <div class="quick">
+      <div class="q"><div class="qq"><span>🚨</span>Problema técnico?</div><div class="qa">Walkie-talkie → <b>Suporte Geral</b>.</div></div>
+      <div class="q"><div class="qq"><span>🎤</span>Palestrante atrasado?</div><div class="qa">Walkie-talkie → <b>Fernanda</b>.</div></div>
+      <div class="q"><div class="qq"><span>🎟️</span>Problema com ingresso?</div><div class="qa">Walkie-talkie → <b>Fernanda</b>.</div></div>
+      <div class="q"><div class="qq"><span>❌</span>Sem ingresso?</div><div class="qa"><b>Não entra.</b></div></div>
+      <div class="q"><div class="qq"><span>⏰</span>Palestrante atrasou?</div><div class="qa"><b>Não altera a programação.</b></div></div>
+      <div class="q"><div class="qq"><span>🔌</span>Problema de energia?</div><div class="qa">Não mexer → <b>Suporte Geral</b>.</div></div>
+      <div class="q"><div class="qq"><span>🎒</span>Achou objeto?</div><div class="qa">Credenciamento → <b>Achados e Perdidos</b>.</div></div>
+      <div class="q"><div class="qq"><span>🩹</span>Primeiros socorros?</div><div class="qa"><b>Credenciamento</b> possui o kit.</div></div>
+      <div class="q"><div class="qq"><span>🏫</span>Faculdade/portaria?</div><div class="qa"><b>Fernanda</b>.</div></div>
+      <div class="q"><div class="qq"><span>📻</span>Walkie-talkie?</div><div class="qa"><b>Ligado</b> durante o evento. Não alterar configuração.</div></div>
+      <div class="q"><div class="qq"><span>📦</span>Terminou sua sala?</div><div class="qa">Conferir caixa → <b>Sala do Staff</b>.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 38 PENDÊNCIAS OBRIGATÓRIAS -->
+<section class="slide" data-title="Pendências obrigatórias" data-chapter="Checklists e pendências" data-emoji="🔴" style="--acc:var(--red)">
+  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span><span class="num">Seção 48</span></div>
+    <h2>🔴 Pendências obrigatórias</h2><p class="sub">Apesar do manual estar praticamente fechado, alguns pontos ainda precisam de uma definição nominal.</p></header>
+  <div class="s-body">
+    <ul class="check req" style="--c:3" data-list="pend-obrig">
+      <li><label><input type="checkbox"><span>Responsável da Trilha Sentinela</span></label></li>
+      <li><label><input type="checkbox"><span>Condução da Trilha Sentinela</span></label></li>
+      <li><label><input type="checkbox"><span>Suporte da Trilha Sentinela</span></label></li>
+      <li><label><input type="checkbox"><span>Operação técnica da Trilha Sentinela</span></label></li>
+      <li><label><input type="checkbox"><span>Suporte da Trilha Lua Cheia</span></label></li>
+      <li><label><input type="checkbox"><span>Escala de almoço de todas as posições</span></label></li>
+      <li><label><input type="checkbox"><span>Substitutos de cada posição durante o almoço</span></label></li>
+      <li><label><input type="checkbox"><span>Quem terá walkie-talkie exatamente</span></label></li>
+      <li><label><input type="checkbox"><span>Quem terá acesso às salas (ver com Adri)</span></label></li>
+      <li><label><input type="checkbox"><span>Confirmação do suporte técnico/internet</span></label></li>
+      <li><label><input type="checkbox"><span>Definição de quem acompanha cada necessidade de infraestrutura com a Faculdade</span></label></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 39 PENDÊNCIAS CONFERIR -->
+<section class="slide" data-title="Conferir antes de 30/10" data-chapter="Checklists e pendências" data-emoji="🟡" style="--acc:var(--yellow)">
+  <header class="s-head" style="margin-bottom:18px"><div class="tag"><span class="chap">Checklists e pendências</span><span class="num">Seção 48</span></div>
+    <h2>🟡 Conferir antes de 30/10</h2></header>
+  <div class="s-body" style="gap:14px">
+    <ul class="check conf" style="--c:4" data-list="pend-conf">
+      <li><label><input type="checkbox"><span>Todos os notebooks testados</span></label></li>
+      <li><label><input type="checkbox"><span>Todos os passadores testados</span></label></li>
+      <li><label><input type="checkbox"><span>Pilhas reserva separadas</span></label></li>
+      <li><label><input type="checkbox"><span>Todos os timers funcionando</span></label></li>
+      <li><label><input type="checkbox"><span>Walkie-talkies carregados</span></label></li>
+      <li><label><input type="checkbox"><span>Caixas identificadas por sala</span></label></li>
+      <li><label><input type="checkbox"><span>Cronogramas impressos</span></label></li>
+      <li><label><input type="checkbox"><span>Lista de participantes impressa</span></label></li>
+      <li><label><input type="checkbox"><span>Lista de canecas impressa</span></label></li>
+      <li><label><input type="checkbox"><span>Crachás separados</span></label></li>
+      <li><label><input type="checkbox"><span>Welcome kits montados</span></label></li>
+      <li><label><input type="checkbox"><span>Sacolas de Staff montadas e identificadas</span></label></li>
+      <li><label><input type="checkbox"><span>Vouchers de almoço separados</span></label></li>
+      <li><label><input type="checkbox"><span>5 carregadores portáteis no credenciamento</span></label></li>
+      <li><label><input type="checkbox"><span>Cabos disponíveis</span></label></li>
+      <li><label><input type="checkbox"><span>Extensão do credenciamento</span></label></li>
+      <li><label><input type="checkbox"><span>Kit de primeiros socorros</span></label></li>
+      <li><label><input type="checkbox"><span>Caixa de achados e perdidos</span></label></li>
+      <li><label><input type="checkbox"><span>Patos de brinde</span></label></li>
+      <li><label><input type="checkbox"><span>Caixa de som do Lounge/Pátio</span></label></li>
+      <li><label><input type="checkbox"><span>Banners</span></label></li>
+      <li><label><input type="checkbox"><span>Sinalização</span></label></li>
+      <li><label><input type="checkbox"><span>Materiais dos patrocinadores</span></label></li>
+      <li><label><input type="checkbox"><span>Equipamentos da transmissão</span></label></li>
+      <li><label><input type="checkbox"><span>Mesa de som testada</span></label></li>
+      <li><label><input type="checkbox"><span>Áudio do pátio testado</span></label></li>
+      <li><label><input type="checkbox"><span>Ar-condicionado das salas conferido</span></label></li>
+      <li><label><input type="checkbox"><span>Iluminação conferida</span></label></li>
+      <li><label><input type="checkbox"><span>Acessos/chaves confirmados com Adri</span></label></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 40 FINAL -->
+<section class="slide" data-title="A regra mais importante" data-chapter="Encerramento" style="--acc:var(--moon)">
+  <div class="moon sm" aria-hidden="true"></div>
+  <header class="s-head"><div class="tag"><span class="chap">Encerramento</span></div>
+    <h2>👻 A regra mais importante</h2></header>
+  <div class="s-body" style="gap:26px">
+    <ol class="final-list">
+      <li>Cada pessoa cuida da sua posição.</li>
+      <li>Cada sala cuida da sua caixa.</li>
+      <li>Cada problema é comunicado pelo walkie-talkie.</li>
+      <li>Nenhuma programação é alterada.</li>
+      <li>Nenhum participante entra sem ingresso sem autorização da coordenação.</li>
+      <li>E ninguém precisa resolver sozinho o que não é responsabilidade da sua função.</li>
+    </ol>
+    <div><p class="muted">O objetivo é que o Staff consiga olhar para esse manual e saber exatamente:</p>
+      <div class="ask"><span>📍 Onde eu preciso estar</span><span>✅ O que eu preciso fazer</span><span>📻 Quem eu chamo</span><span>➡️ O que acontece depois</span></div></div>
+  </div>
+</section>
+
+</div>
+</div>
+
+<!-- HUD -->
+<div class="hud">
+  <div class="brand"><span class="dots"><i></i><i></i><i></i><i></i></span>DevFest Porto Alegre 2026 · Manual do Staff</div>
+  <div class="ctrl" role="toolbar" aria-label="Navegação das telas">
+    <button id="prev" aria-label="Tela anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button class="counter" id="counter" aria-label="Ver todas as telas"><b id="cur">01</b><span>/</span><span id="tot">40</span></button>
+    <button id="next" aria-label="Próxima tela"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    <span class="sep opt"></span>
+    <button id="gridBtn" aria-label="Todas as telas (G)" title="Todas as telas (G)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></button>
+    <button id="fsBtn" class="opt" aria-label="Tela cheia (F)" title="Tela cheia (F)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-label="Todas as telas">
+  <div class="ov-head"><h3>Todas as telas</h3><input id="ovFilter" type="search" placeholder="Buscar tela" aria-label="Buscar tela"><button class="ov-close" id="ovClose" aria-label="Fechar">✕</button></div>
+  <div class="ov-grid" id="ovGrid"></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+  const stage=$('#stage'), slides=$$('.slide'), total=slides.length;
+  const pad=n=>String(n).padStart(2,'0');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let idx=0;
+  $('#tot').textContent=pad(total);
+
+  /* ---------- fit ---------- */
+  function fit(){
+    const w=innerWidth,h=innerHeight;
+    const fluid = w<900 || w/h<1.15;
+    document.body.classList.toggle('fluid',fluid);
+    if(!fluid){
+      const s=Math.min(w/1600,h/900);
+      stage.style.transform=`translate(-50%,-50%) scale(${s})`;
+    } else stage.style.transform='';
+  }
+  addEventListener('resize',fit); fit();
+
+  /* ---------- stagger ---------- */
+  slides.forEach(sl=>{
+    const els=sl.querySelectorAll('.s-head > *, .s-body > *, .s-body li, .s-body .area, .s-body .panel, .s-body .q, .s-body .badge');
+    let i=0; els.forEach(el=>{el.classList.add('rv');el.style.setProperty('--d',Math.min(i*28,900)+'ms');i++;});
+  });
+
+  /* ---------- navigation ---------- */
+  function show(n,fromHash){
+    n=Math.max(0,Math.min(total-1,n));
+    const old=idx; idx=n;
+    slides.forEach((s,i)=>{
+      s.classList.toggle('active',i===n);
+      s.classList.toggle('prev',i<n);
+      if(i!==n){s.classList.remove('in');s.setAttribute('aria-hidden','true');s.inert=true}
+    });
+    const cur=slides[n];
+    cur.removeAttribute('aria-hidden'); cur.inert=false;
+    cur.classList.remove('in'); void cur.offsetWidth; cur.classList.add('in');
+    cur.scrollTop=0;
+    $('#cur').textContent=pad(n+1);
+    $('#bar').style.width=((n+1)/total*100)+'%';
+    $('#prev').disabled=n===0; $('#next').disabled=n===total-1;
+    $('#mtitleText').textContent=cur.dataset.chapter;
+    document.title=(n===0?'':cur.dataset.title+' — ')+'Manual do Staff · DevFest POA 2026';
+    if(!fromHash) history.replaceState(null,'','#'+(n+1));
+  }
+  const next=()=>show(idx+1), prev=()=>show(idx-1);
+  $('#next').onclick=next; $('#prev').onclick=prev;
+  addEventListener('hashchange',()=>{const n=parseInt(location.hash.slice(1),10); if(n) show(n-1,true)});
+
+  addEventListener('keydown',e=>{
+    const tag=(e.target.tagName||'').toLowerCase();
+    if(tag==='input' && e.target.type!=='checkbox') return;
+    if($('#ov').classList.contains('open')){ if(e.key==='Escape'||e.key==='g'||e.key==='G') closeOv(); return; }
+    if(tag==='input' && (e.key===' '||e.key==='Enter')) return;
+    switch(e.key){
+      case 'ArrowRight': case 'PageDown': case ' ': case 'Enter': e.preventDefault(); next(); break;
+      case 'ArrowLeft': case 'PageUp': e.preventDefault(); prev(); break;
+      case 'ArrowDown': if(!document.body.classList.contains('fluid')){e.preventDefault();next()} break;
+      case 'ArrowUp': if(!document.body.classList.contains('fluid')){e.preventDefault();prev()} break;
+      case 'Home': e.preventDefault(); show(0); break;
+      case 'End': e.preventDefault(); show(total-1); break;
+      case 'g': case 'G': openOv(); break;
+      case 'f': case 'F': toggleFs(); break;
+    }
+  });
+
+  /* wheel (desktop) */
+  let wLock=false;
+  addEventListener('wheel',e=>{
+    if(document.body.classList.contains('fluid')||$('#ov').classList.contains('open')) return;
+    if(Math.abs(e.deltaY)<25||wLock) return;
+    wLock=true; e.deltaY>0?next():prev();
+    setTimeout(()=>wLock=false,850);
+  },{passive:true});
+
+  /* swipe */
+  let sx=0,sy=0;
+  $('#deck').addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+  $('#deck').addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>55 && Math.abs(dx)>Math.abs(dy)*1.4) dx<0?next():prev();
+  },{passive:true});
+
+  /* fullscreen */
+  function toggleFs(){
+    if(!document.fullscreenElement) document.documentElement.requestFullscreen?.().catch(()=>{});
+    else document.exitFullscreen?.();
+  }
+  $('#fsBtn').onclick=toggleFs;
+
+  /* ---------- overview ---------- */
+  const ovGrid=$('#ovGrid');
+  slides.forEach((s,i)=>{
+    const b=document.createElement('button');
+    b.className='ov-item';
+    b.style.setProperty('--c',getComputedStyle(s).getPropertyValue('--acc')||'var(--pumpkin)');
+    b.innerHTML=`<span class="oi-n">${pad(i+1)} / ${pad(total)}<i></i></span><span class="oi-t"></span><span class="oi-c"></span>`;
+    b.querySelector('.oi-t').textContent=s.dataset.title;
+    b.querySelector('.oi-c').textContent=s.dataset.chapter;
+    b.dataset.search=(s.dataset.title+' '+s.dataset.chapter+' '+s.textContent).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    b.onclick=()=>{closeOv();show(i)};
+    ovGrid.appendChild(b);
+  });
+  function openOv(){
+    $$('.ov-item').forEach((b,i)=>b.classList.toggle('cur',i===idx));
+    $('#ov').classList.add('open');
+    setTimeout(()=>{ const c=$('.ov-item.cur'); c&&c.focus(); },50);
+  }
+  function closeOv(){ $('#ov').classList.remove('open'); $('#ovFilter').value=''; filterOv(''); }
+  function filterOv(q){
+    q=q.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    $$('.ov-item').forEach(b=>b.style.display=(!q||b.dataset.search.includes(q))?'':'none');
+  }
+  $('#counter').onclick=openOv; $('#gridBtn').onclick=openOv; $('#ovClose').onclick=closeOv;
+  $('#ovFilter').addEventListener('input',e=>filterOv(e.target.value));
+  $('#ovFilter').addEventListener('keydown',e=>{ if(e.key==='Escape') closeOv(); if(e.key==='Enter'){const f=$$('.ov-item').find(b=>b.style.display!=='none'); f&&f.click();} });
+
+  /* ---------- checklists ---------- */
+  const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+  $$('.check').forEach(list=>{
+    const id=list.dataset.list, boxes=Array.from(list.querySelectorAll('input'));
+    const bar=document.createElement('div'); bar.className='check-bar';
+    bar.innerHTML='<div class="meter"><i></i></div><span class="count"></span><button class="linkbtn" type="button">Limpar</button>';
+    list.parentNode.insertBefore(bar,list);
+    const m=bar.querySelector('i'), c=bar.querySelector('.count');
+    const color=list.classList.contains('req')?'var(--red)':list.classList.contains('conf')?'var(--yellow)':'var(--green)';
+    function upd(){const n=boxes.filter(b=>b.checked).length; m.style.width=(n/boxes.length*100)+'%'; m.style.background=n===boxes.length?'var(--green)':color; c.textContent=n+' de '+boxes.length;}
+    boxes.forEach((b,i)=>{
+      const k='dfpoa26:'+id+':'+i;
+      if(store.get(k)==='1') b.checked=true;
+      b.addEventListener('change',()=>{b.checked?store.set(k,'1'):store.del(k);upd();if(boxes.every(x=>x.checked))toast('🎃 Checklist completo!')});
+    });
+    bar.querySelector('button').onclick=()=>{boxes.forEach((b,i)=>{b.checked=false;store.del('dfpoa26:'+id+':'+i)});upd()};
+    upd();
+  });
+
+  /* ---------- toast ---------- */
+  let tt; function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),2200)}
+
+  /* ---------- countdown ---------- */
+  const target=new Date('2026-10-31T07:45:00-03:00').getTime();
+  (function tick(){
+    let d=target-Date.now();
+    if(d<=0){$('#countdown').innerHTML='<div class="unit" style="padding:12px 20px"><b style="font-size:24px">🎃 É hoje! Bom evento, Staff.</b></div>';return}
+    const D=Math.floor(d/864e5);d%=864e5;const H=Math.floor(d/36e5);d%=36e5;const M=Math.floor(d/6e4);d%=6e4;const S=Math.floor(d/1e3);
+    $('#cd-d').textContent=D;$('#cd-h').textContent=pad(H);$('#cd-m').textContent=pad(M);$('#cd-s').textContent=pad(S);
+    setTimeout(tick,1000);
+  })();
+
+  /* ---------- start ---------- */
+  const start=parseInt(location.hash.slice(1),10);
+  show(start?start-1:0,true);
+})();
+</script>
+</body>
+</html>
