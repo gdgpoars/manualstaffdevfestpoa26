@@ -245,7 +245,7 @@ body.fluid .bat{display:none}
 
 /* final */
 .final-list{list-style:none;margin:0;padding:0;display:grid;gap:0;max-width:1100px}
-.final-list li{font-size:33px;line-height:1.22;letter-spacing:-.02em;font-weight:500;padding:12px 0;border-bottom:1px solid var(--line)}
+.final-list li{font-size:29px;line-height:1.22;letter-spacing:-.02em;font-weight:500;padding:12px 0;border-bottom:1px solid var(--line)}
 .final-list li:last-child{border-bottom:0;color:var(--moon)}
 .ask{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
 .ask span{padding:9px 16px;border-radius:999px;background:var(--surface-2);font-size:18px}
@@ -294,6 +294,22 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
 .toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 84px);transform:translate(-50%,16px);opacity:0;background:var(--surface-2);border:1px solid var(--line-2);padding:10px 18px;border-radius:999px;font-size:15px;z-index:50;pointer-events:none;transition:opacity .3s,transform .3s}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
+
+/* v2 */
+.pillar{border-radius:20px;padding:20px 20px 18px;background:radial-gradient(260px 120px at 100% 0%,color-mix(in srgb,var(--p) 18%,transparent),transparent 70%),var(--surface);border:1px solid color-mix(in srgb,var(--p) 35%,var(--line));border-top:3px solid var(--p);display:grid;gap:8px;align-content:start}
+.pillar span{font-size:32px}.pillar b{font-size:23px;letter-spacing:-.015em}.pillar p{font-size:17px;color:var(--muted)}
+.lnk{position:relative;display:grid;gap:6px;align-content:start;padding:20px 22px;border-radius:18px;background:var(--surface);border:1px solid var(--line);text-decoration:none;color:var(--text);transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s,background .25s}
+.lnk:hover{transform:translateY(-3px);border-color:rgba(66,133,244,.55);background:var(--surface-2)}
+.lnk .li{font-size:30px}.lnk b{font-size:20px;letter-spacing:-.01em}.lnk small{font-size:16px;color:var(--muted);line-height:1.35}
+.lnk i{position:absolute;top:18px;right:20px;font-style:normal;color:var(--faint);font-size:20px;transition:color .2s,transform .2s}
+.lnk:hover i{color:var(--blue);transform:translate(2px,-2px)}
+.lnk-inline{display:inline-block;margin-top:12px;color:color-mix(in srgb,var(--blue) 70%,#fff);font-size:16px;text-decoration:none;border-bottom:1px solid currentColor}
+.panel a{color:color-mix(in srgb,var(--blue) 70%,#fff)}
+.tile{border-radius:18px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--t);display:grid;gap:4px;align-content:start}
+.tile span{font-size:26px}.tile b{font-size:19px}.tile p{font-size:16px;color:var(--muted);line-height:1.35}
+.wt{font-style:normal;font-size:12.5px;font-weight:500;padding:1px 8px;border-radius:999px;background:rgba(165,107,255,.14);color:#c9a8ff;margin-left:4px;white-space:nowrap;display:inline-block;text-decoration:none}
+table.tight{font-size:15.5px}table.tight th,table.tight td{padding:7px 14px}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .bat{display:none}
@@ -309,7 +325,6 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
 <div class="deck" id="deck">
 <div class="stage" id="stage">
 
-<!-- 1 CAPA -->
 <section class="slide cover" data-title="Capa" data-chapter="DevFest Porto Alegre 2026" style="--acc:var(--moon)">
   <div class="moon" aria-hidden="true"></div>
   <div class="bat b1" aria-hidden="true"><svg viewBox="0 0 64 28" fill="currentColor"><path d="M32 8c-2 0-3 2-3 2l-2-4-1 4C22 4 14 2 0 6c8 2 11 6 12 12 3-3 7-3 9 0 2-2 5-2 7 1 1-2 2-3 4-3s3 1 4 3c2-3 5-3 7-1 2-3 6-3 9 0 1-6 4-10 12-12-14-4-22-2-26 4l-1-4-2 4s-1-2-3-2Z"/></svg></div>
@@ -319,7 +334,7 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
     <span class="kicker"><em>👻 Staff</em> GDG Porto Alegre &amp; GDG Caxias do Sul</span>
     <h1>Manual operacional <span class="grad">dos voluntários</span></h1>
     <p class="lead">Onde você precisa estar, o que precisa fazer, quem chamar e o que acontece depois.</p>
-    <div class="meta"><div><span>📅</span>31 de outubro de 2026</div><div><span>🕘</span>09h às 18h</div><div><span>📍</span>Faculdade Dom Bosco, Porto Alegre/RS</div></div>
+    <div class="meta"><div><span>📅</span>31 de outubro de 2026</div><div><span>🕘</span>09h às 18h</div><div><span>📍</span>Faculdade Dom Bosco, Porto Alegre/RS</div><div class="muted"><span>🔄</span>Atualizado em 25/10</div></div>
     <div class="countdown" id="countdown">
       <div class="cd-label">Faltam para a chegada do Staff, 07h45 de 31/10</div>
       <div class="unit"><b id="cd-d">--</b><small>dias</small></div>
@@ -331,9 +346,8 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 2 MISSÃO -->
 <section class="slide" data-title="Nossa missão como Staff" data-chapter="Antes de abrir as portas" data-emoji="🎃" style="--acc:var(--purple)">
-  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span><span class="num">Seção 01</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span></div>
     <h2>Nossa missão como Staff</h2><p class="sub">O Staff é responsável por fazer o evento acontecer de forma organizada, acolhedora e fluida.</p></header>
   <div class="s-body">
     <div class="grid split">
@@ -346,71 +360,103 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 3 MONTAGEM -->
-<section class="slide" data-title="Cronograma geral: montagem 30/10" data-chapter="Antes de abrir as portas" data-emoji="🛠️" style="--acc:var(--purple)">
-  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span><span class="num">Seção 02</span></div>
-    <h2>📅 30/10: montagem</h2><p class="sub">A partir das 18h, com a participação dos voluntários que puderem comparecer.</p></header>
+<section class="slide" data-title="Postura esperada do Staff" data-chapter="Antes de abrir as portas" data-emoji="💜" style="--acc:var(--purple)">
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span></div>
+    <h2>💜 Postura esperada do Staff</h2><p class="sub">Somos a cara do DevFestPoa26. Seguimos o Código de Conduta do evento e damos o exemplo.</p></header>
   <div class="s-body">
-    <div><p class="h">Prioridades da montagem</p>
-    <ul class="ticks" style="--c:4">
-      <li>Organização do palco principal.</li><li>Organização das salas.</li><li>Identificação das salas.</li><li>Montagem do credenciamento.</li>
-      <li>Montagem do espaço dos patrocinadores.</li><li>Organização do Lounge/Pátio.</li><li>Organização do espaço GDGs.</li><li>Organização do Covil.</li>
-      <li>Organização da mesa de som.</li><li style="--dot:var(--blue)">Teste dos notebooks.</li><li style="--dot:var(--blue)">Teste dos passadores.</li><li style="--dot:var(--blue)">Teste dos timers.</li>
-      <li style="--dot:var(--blue)">Teste dos walkie-talkies.</li><li>Organização das caixas de cada sala.</li><li>Organização dos kits de Staff.</li><li>Montagem dos welcome kits.</li>
-      <li>Separação das canecas.</li><li>Organização dos materiais de mídia.</li><li>Organização da sinalização.</li><li style="--dot:var(--blue)">Teste da transmissão do auditório para o pátio.</li>
-    </ul></div>
-    <div class="callout warn"><span class="ic">🎁</span><div><strong>Welcome kits</strong>Os welcome kits devem ser montados no dia 30/10.</div></div>
+    <div class="grid stretch" style="--c:4">
+      <div class="pillar" style="--p:var(--blue)"><span>🎯</span><b>Responsabilidade</b><p>Cumpra sua posição e os horários, cuide dos materiais da sua área e avise antes de sair do posto.</p></div>
+      <div class="pillar" style="--p:var(--red)"><span>⚡</span><b>Proatividade</b><p>Viu algo fora do lugar? Resolva ou comunique. Olhar atento e presente, sem dispersão.</p></div>
+      <div class="pillar" style="--p:var(--yellow)"><span>🤝</span><b>Parceria</b><p>Cubra quem está no revezamento, ajude outras áreas quando a sua estiver tranquila e acolha quem chega.</p></div>
+      <div class="pillar" style="--p:var(--green)"><span>🎉</span><b>Curtir com a gente</b><p>O evento também é nosso. Depois do encerramento, bora para o after com a galera!</p></div>
+    </div>
+    <div class="panel">
+      <p class="h">📜 Código de Conduta na prática</p>
+      <ul class="ticks" style="--c:3"><li>Tratar todas as pessoas com respeito, empatia e cordialidade.</li><li>Usar linguagem acolhedora e inclusiva.</li><li>Respeitar limites pessoais e as necessidades de acessibilidade.</li><li>Não usar o espaço do evento para manifestações político-partidárias.</li><li>Presenciou algo inadequado? Acolha, não normalize e chame a coordenação.</li><li>Não é preciso concordar com todo mundo. É preciso respeitar todo mundo.</li></ul>
+      <a class="lnk-inline" href="https://www.devfestportoalegre.com.br/codigo-de-conduta" target="_blank" rel="noopener">Ler o Código de Conduta completo ↗</a>
+    </div>
   </div>
 </section>
 
-<!-- 4 CRONOGRAMA 31/10 -->
+<section class="slide" data-title="Links e materiais" data-chapter="Antes de abrir as portas" data-emoji="🔗" style="--acc:var(--blue)">
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span></div>
+    <h2>🔗 Links que você vai usar</h2><p class="sub">Deixe tudo aberto no celular no dia do evento.</p></header>
+  <div class="s-body">
+    <div class="grid stretch" style="--c:3">
+      <a class="lnk" href="https://docs.google.com/spreadsheets/d/1i1jw4mWZ-V4T1EE9ll70zHGGYRZC5go8EM3lFKR7q-E/edit?gid=2129326803#gid=2129326803" target="_blank" rel="noopener"><span class="li">📋</span><b>Escala e responsáveis</b><small>Quem está em cada área, com a escala completa.</small><i>↗</i></a>
+      <a class="lnk" href="https://docs.google.com/spreadsheets/d/13N8IrtxU_gTK6UsFhYFGz_KuvH534vQ2NrZHgayw4EA/edit?gid=485563921#gid=485563921" target="_blank" rel="noopener"><span class="li">🎤</span><b>Palestrantes e patrocinadores</b><small>Para quem é responsável de área saber quem é quem.</small><i>↗</i></a>
+      <a class="lnk" href="https://docs.google.com/document/d/1771hxazHpNgiztpubyga1j08OLZ7RBeOqqxri1CkwUQ/edit?usp=sharing" target="_blank" rel="noopener"><span class="li">✅</span><b>Checklists das áreas</b><small>Itens de apoio e checklists de cada espaço.</small><i>↗</i></a>
+      <a class="lnk" href="https://www.devfestportoalegre.com.br/programacao" target="_blank" rel="noopener"><span class="li">📱</span><b>Programação completa</b><small>Toda a grade do dia está no web app do evento.</small><i>↗</i></a>
+      <a class="lnk" href="https://www.devfestportoalegre.com.br/experiencia" target="_blank" rel="noopener"><span class="li">🧭</span><b>Guia da pessoa participante</b><small>O que o público recebeu: como chegar, kit, Wi-Fi e almoço.</small><i>↗</i></a>
+      <a class="lnk" href="https://www.devfestportoalegre.com.br/codigo-de-conduta" target="_blank" rel="noopener"><span class="li">📜</span><b>Código de Conduta</b><small>As regras de convivência que valem para todo mundo.</small><i>↗</i></a>
+    </div>
+    <div class="callout info"><span class="ic">💬</span><div><strong>Canais oficiais do evento</strong>WhatsApp (51) 2185-0587 · devfestpoa@gmail.com. Use para orientar participantes que pedirem um contato.</div></div>
+  </div>
+</section>
+
+<section class="slide" data-title="07h45: Staff, chegue cedo!" data-chapter="Antes de abrir as portas" data-emoji="⏰" style="--acc:var(--red)">
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span></div>
+    <h2>⏰ 07h45: Staff, chegue cedo!</h2></header>
+  <div class="s-body">
+    <div class="golden" style="--g:var(--red)"><small>Por que tão cedo?</small><p>Não vamos conseguir arrumar as salas na sexta. Tudo fica concentrado no Auditório e é montado na manhã do evento.</p></div>
+    <div class="grid split" style="--cols:1.2fr .8fr">
+      <div><p class="h">Ao chegar</p>
+        <ol class="steps" style="--c:2"><li>Ir direto para o Auditório: a concentração é lá.</li><li>Fazer check-in e receber seu crachá.</li><li>Guardar seus pertences.</li><li>Retirar sua sacola de Staff.</li><li>Conferir sua posição na escala.</li><li>Participar do briefing às 08h, no Auditório.</li><li>Retirar a caixa de apoio da sua área.</li><li>Retirar os brindes dos palestrantes da sua trilha.</li><li>Receber o walkie-talkie, quando aplicável.</li><li>Levar tudo para sua sala ou área e montar.</li></ol></div>
+      <div class="panel"><p class="h">🎁 Sua sacola de Staff</p>
+        <ul class="mini" style="margin:0"><li>Caneca</li><li>Camiseta</li><li>Bottom</li><li>Vale almoço</li><li>Mousepad Asaas</li><li>Chaveiro Asaas</li></ul>
+        <p class="muted" style="margin-top:14px;font-size:16px">No Auditório também ficam as caixas de apoio de cada área, os brindes dos palestrantes e os demais itens das salas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="30/10: montagem pré-evento" data-chapter="Antes de abrir as portas" data-emoji="🛠️" style="--acc:var(--purple)">
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span></div>
+    <h2>📅 30/10: montagem pré-evento</h2><p class="sub">A partir das 18h. As salas não serão arrumadas na sexta: os itens ficam no Auditório.</p></header>
+  <div class="s-body">
+    <div class="grid split" style="--cols:1.45fr .55fr">
+      <div class="panel"><p class="h">📦 Geral</p><ul class="ticks" style="--c:2"><li>Montar 500 welcome kits: itens do evento + itens de patrocinadores (caderneta, caneta, adesivos).</li><li>Organizar crachás + cordões.</li><li>Receber e posicionar mesas e cadeiras do credenciamento e do espaço da comunidade no pátio.</li><li>Receber e posicionar as caixas de som.</li><li>Receber e configurar os notebooks.</li><li>Espalhar os cartazes com QR Code.</li><li>Montar o backdrop.</li><li>Montar 36 sacolas de brindes do Staff.</li><li>Montar 43 sacolas de brindes dos palestrantes.</li></ul></div>
+      <div style="display:grid;gap:16px">
+        <div class="panel"><p class="h">🎟️ Credenciamento</p><ul class="ticks" style="--c:1;--dot:var(--blue)"><li>Mesas com toalhas.</li><li>Crachás prontos.</li><li>Sinalização: cartazes A4, banners, totens.</li><li>Caixa de itens pronta.</li><li>Celulares logados.</li></ul></div>
+        <div class="panel"><p class="h">🎪 Pátio</p><ul class="ticks" style="--c:1;--dot:var(--green)"><li>Mesas e cadeiras posicionadas.</li><li>Sinalização posicionada.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="slide" data-title="31/10: cronograma do Staff" data-chapter="Antes de abrir as portas" data-emoji="🕰️" style="--acc:var(--purple)">
-  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span><span class="num">Seção 03</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span></div>
     <h2>31/10: cronograma do Staff</h2></header>
   <div class="s-body">
     <div class="grid" style="--c:2">
       <ol class="timeline">
-        <li class="key"><time>07h45</time><div>Chegada dos voluntários</div></li>
-        <li><time>07h45–08h00</time><div>Check-in, identificação e organização pessoal</div></li>
-        <li><time>08h00</time><div>Concentração na Sala do Staff</div></li>
-        <li class="key"><time>08h00–08h15</time><div>Briefing geral</div></li>
-        <li><time>08h15</time><div>Credenciamento inicia</div></li>
-        <li><time>08h15</time><div>Entrega de canecas inicia</div></li>
-        <li><time>08h15–09h00</time><div>Salas abertas<small>Participantes podem se acomodar</small></div></li>
-        <li class="key"><time>09h00</time><div>Abertura oficial no Auditório</div></li>
+        <li class="key"><time>07h45</time><div>Chegada do Staff no Auditório</div></li>
+        <li><time>07h45–08h00</time><div>Check-in, crachá e retirada dos itens</div></li>
+        <li class="key"><time>08h00–08h15</time><div>Briefing geral no Auditório</div></li>
+        <li><time>08h15</time><div>Credenciamento e entrega de canecas iniciam</div></li>
+        <li><time>08h15–09h00</time><div>Salas montadas e abertas<small>Participantes podem se acomodar</small></div></li>
+        <li class="key"><time>09h00</time><div>Abertura no palco principal</div></li>
+        <li><time>09h15</time><div>Início dos conteúdos</div></li>
+        <li><time>Antes do almoço</time><div>Foto oficial do Staff</div></li>
       </ol>
       <ol class="timeline">
-        <li><time>09h00–18h00</time><div>Programação, experiências e networking</div></li>
-        <li><time>Antes do almoço</time><div>Foto oficial do Staff</div></li>
-        <li><time>Almoço</time><div>Revezamento dos voluntários</div></li>
-        <li><time>16h00</time><div>Encerramento do credenciamento</div></li>
-        <li class="key"><time>18h00</time><div>Encerramento do evento</div></li>
-        <li><time>Após a última palestra</time><div>Desmontagem da sala<small>Após a última palestra de cada sala</small></div></li>
-        <li><time>Após o fim</time><div>Desmontagem geral<small>Após o encerramento</small></div></li>
+        <li><time>12h15–13h30</time><div>Almoço<small>Revezamento do Staff</small></div></li>
+        <li><time>13h30–13h45</time><div>Retomada e dinâmica nas salas</div></li>
+        <li><time>15h30–16h15</time><div>Coffee break no pátio</div></li>
+        <li><time>16h00</time><div>Credenciamento encerra</div></li>
+        <li><time>16h30</time><div>Espaço da comunidade começa a fechar</div></li>
+        <li><time>17h00</time><div>Salas encaminham o público para o encerramento</div></li>
+        <li class="key"><time>17h00–17h40</time><div>Encerramento no palco principal<small>Com transmissão para o pátio</small></div></li>
+        <li><time>Após o fim</time><div>Desmontagem e after 🎉</div></li>
       </ol>
     </div>
   </div>
 </section>
 
-<!-- 5 CHEGADA -->
-<section class="slide" data-title="07h45: chegada dos voluntários" data-chapter="Antes de abrir as portas" data-emoji="🚪" style="--acc:var(--purple)">
-  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span><span class="num">Seção 04</span></div>
-    <h2>07h45: chegada dos voluntários</h2><p class="sub">Ao chegar, cada voluntário deve:</p></header>
-  <div class="s-body">
-    <ol class="steps" style="--c:3">
-      <li>Fazer check-in.</li><li>Receber seu crachá.</li><li>Conferir sua posição.</li>
-      <li>Guardar seus pertences.</li><li>Retirar sua sacola de Staff.</li><li>Conferir seu voucher de almoço.</li>
-      <li>Receber seu walkie-talkie, quando aplicável.</li><li>Verificar se os equipamentos da sua função estão disponíveis.</li><li>Dirigir-se à Sala do Staff às 08h.</li>
-    </ol>
-  </div>
-</section>
-
-<!-- 6 BRIEFING -->
 <section class="slide" data-title="08h00: briefing geral" data-chapter="Antes de abrir as portas" data-emoji="📣" style="--acc:var(--purple)">
-  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span><span class="num">Seção 05</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span></div>
     <h2>08h00: briefing geral</h2></header>
   <div class="s-body">
-    <div class="pins"><span class="pin">📍 Sala do Staff</span><span class="pin">👥 Todos os voluntários devem estar presentes</span></div>
+    <div class="pins"><span class="pin">📍 Auditório</span><span class="pin">👥 Todos os voluntários devem estar presentes</span></div>
     <div><p class="h">Durante o briefing, vamos reforçar</p>
     <ul class="ticks" style="--c:4">
       <li>Cronograma do evento.</li><li>Posições de cada voluntário.</li><li>Responsáveis por cada área.</li><li>Funcionamento dos walkie-talkies.</li>
@@ -421,9 +467,26 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 7 WALKIE -->
+<section class="slide" data-title="Mapa rápido do evento" data-chapter="Antes de abrir as portas" data-emoji="🗺️" style="--acc:var(--green)">
+  <header class="s-head"><div class="tag"><span class="chap">Antes de abrir as portas</span></div>
+    <h2>🗺️ Mapa rápido do evento</h2><p class="sub">O que mais vão te perguntar, e o que você precisa saber de cor.</p></header>
+  <div class="s-body">
+    <div class="grid stretch" style="--c:4">
+      <div class="tile" style="--t:var(--pumpkin)"><span>🏰</span><b>Auditório · 1º andar</b><p>Salão Comunal, 194 lugares. Abertura, encerramento e concentração do Staff.</p></div>
+      <div class="tile" style="--t:var(--purple)"><span>🚪</span><b>Salas · 4º andar</b><p>401 Covil (40) · 406 Lua Cheia (48) · 408 Magia (54) · 409 Sentinela (60) · 410 Alquimia (54).</p></div>
+      <div class="tile" style="--t:var(--green)"><span>🎪</span><b>Pátio</b><p>Coffee breaks, estandes e espaço dos patrocinadores e espaço da comunidade.</p></div>
+      <div class="tile" style="--t:var(--yellow)"><span>☕</span><b>Térmicas de café</b><p>Na saída do Auditório, no corredor do 4º andar e no pátio.</p></div>
+      <div class="tile" style="--t:var(--blue)"><span>🚻</span><b>Banheiros</b><p>Disponíveis nos andares. Oriente quem perguntar.</p></div>
+      <div class="tile" style="--t:var(--blue)"><span>📶</span><b>Wi-Fi</b><p>A rede de visitantes da Faculdade funciona. Plano B: 5G no celular.</p></div>
+      <div class="tile" style="--t:var(--yellow)"><span>🍽️</span><b>Almoço do público</b><p>Cantina Gabigu, dentro da Faculdade: buffet e lanches.</p></div>
+      <div class="tile" style="--t:var(--green)"><span>📱</span><b>Programação</b><p>A grade completa está no web app do evento.</p></div>
+    </div>
+    <div class="callout stop"><span class="ic">🔒</span><div><strong>Sala do Staff é só para o Staff.</strong>Não leve pessoas que não são do Staff para lá. A segurança estará de olho.</div></div>
+  </div>
+</section>
+
 <section class="slide" data-title="Comunicação por walkie-talkie" data-chapter="Comunicação e entrada" data-emoji="📻" style="--acc:var(--blue)">
-  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span><span class="num">Seção 06</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span></div>
     <h2>📻 Comunicação por walkie-talkie</h2><p class="sub">Os walkie-talkies já virão configurados.</p></header>
   <div class="s-body">
     <div class="grid" style="--c:2">
@@ -445,27 +508,34 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 8 CREDENCIAMENTO -->
 <section class="slide" data-title="08h15: credenciamento" data-chapter="Comunicação e entrada" data-emoji="🎟️" style="--acc:var(--blue)">
-  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span><span class="num">Seção 07</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span></div>
     <h2>08h15: credenciamento</h2></header>
   <div class="s-body">
-    <div class="pins"><span class="pin">📍 Área de Credenciamento</span><span class="pin">🕗 Início 08h15</span><span class="pin">⏱️ Totalmente operacional antes desse horário</span></div>
-    <div class="grid" style="--cols:.9fr 1.1fr" >
-      <div style="display:grid;gap:18px">
-        <div><p class="h">📱 Aplicativo: cada pessoa deve</p>
-        <ol class="steps" style="--c:1"><li>Ter o aplicativo instalado no celular.</li><li>Estar logada.</li><li>Ter login funcionando.</li><li>Ter o computador do credenciamento logado.</li><li>Testar o sistema antes das 08h15.</li></ol></div>
+    <div class="pins"><span class="pin">📍 Área de Credenciamento</span><span class="pin">👤 Responsável: Camila K</span><span class="pin">📲 Check-in pelo Sympla</span><span class="pin">⏱️ Operacional antes das 08h15</span></div>
+    <div class="grid" style="--cols:.85fr 1.15fr .9fr;grid-template-columns:var(--cols)">
+      <div style="display:grid;gap:14px">
+        <div class="panel"><p class="h">👥 Sugestão de divisão</p><ul class="ticks" style="--c:1"><li>1 pessoa entregando welcome kit.</li><li>3 pessoas fazendo check-in pelo celular (QR code).</li><li>1 pessoa fazendo check-in pelo notebook.</li></ul></div>
+        <div class="callout info"><span class="ic">🖊️</span><div>Oriente as pessoas a irem ao pátio escrever o nome no crachá, no espaço da comunidade.</div></div>
       </div>
-      <div class="panel"><p class="h">📦 A caixa do credenciamento deve conter</p>
-        <ul class="ticks" style="--c:2"><li>Computadores.</li><li>Carregadores.</li><li>1 extensão.</li><li>5 carregadores portáteis.</li><li>Cabos: cada pessoa leva o seu.</li><li>Cronograma impresso.</li><li>Nome dos participantes impresso.</li><li>Crachás.</li><li>Materiais de identificação.</li><li>Canetas.</li><li>Caixa de achados e perdidos.</li><li>Kit de primeiros socorros.</li><li>Demais materiais para o atendimento.</li></ul>
-      </div>
+      <div style="display:grid;gap:10px;align-content:start"><p class="h" style="margin:0">✅ Antes de abrir</p>
+      <ul class="check " style="--c:2" data-list="cred-dia">
+      <li><label><input type="checkbox"><span>Mesas organizadas com toalhas</span></label></li>
+      <li><label><input type="checkbox"><span>Crachás prontos</span></label></li>
+      <li><label><input type="checkbox"><span>Sinalização: cartazes A4, banners, totens</span></label></li>
+      <li><label><input type="checkbox"><span>Caixa de itens pronta</span></label></li>
+      <li><label><input type="checkbox"><span>Celulares logados no Sympla e operantes</span></label></li>
+      <li><label><input type="checkbox"><span>Notebook logado no Sympla e operante</span></label></li>
+      <li><label><input type="checkbox"><span>Walkie-talkie ligado e funcional</span></label></li>
+      <li><label><input type="checkbox"><span>Fardinho de água para o Staff</span></label></li>
+    </ul></div>
+      <div class="panel"><p class="h">📦 Caixa de apoio</p><ul class="ticks" style="--c:1;--dot:var(--green)"><li>2 canetas.</li><li>Prancheta com impressos.</li><li>10 garrafinhas de água.</li><li>2 extensões de tomada.</li><li>1 walkie-talkie.</li><li>2 powerbanks.</li><li>1 notebook, logado com o e-mail de quem faz check-in nele.</li></ul></div>
     </div>
   </div>
 </section>
 
-<!-- 9 CRACHÁS DO CREDENCIAMENTO + PROBLEMAS -->
 <section class="slide" data-title="Problemas no credenciamento" data-chapter="Comunicação e entrada" data-emoji="🚨" style="--acc:var(--red)">
-  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span><span class="num">Seções 07 e 08</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span></div>
     <h2>🚨 Problemas no credenciamento</h2></header>
   <div class="s-body">
     <div class="grid" style="--c:2">
@@ -483,9 +553,8 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 10 CANECAS -->
 <section class="slide" data-title="08h15: entrega das canecas" data-chapter="Comunicação e entrada" data-emoji="☕" style="--acc:var(--blue)">
-  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span><span class="num">Seção 09</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span></div>
     <h2>☕ 08h15: entrega das canecas</h2></header>
   <div class="s-body">
     <div class="pins"><span class="pin">📍 Credenciamento</span><span class="pin">👤 Responsável: Fran</span></div>
@@ -496,9 +565,8 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 11 ABERTURA -->
 <section class="slide" data-title="09h00: abertura oficial" data-chapter="Comunicação e entrada" data-emoji="🎤" style="--acc:var(--blue)">
-  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span><span class="num">Seção 10</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Comunicação e entrada</span></div>
     <h2>09h00: abertura oficial</h2></header>
   <div class="s-body">
     <div class="pins"><span class="pin">📍 Auditório, Salão Comunal</span><span class="pin">💺 194 pessoas sentadas</span><span class="pin">📡 Transmissão síncrona para o pátio</span></div>
@@ -523,36 +591,22 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 12 ESCALA -->
 <section class="slide" data-title="Escala geral" data-chapter="Equipes e espaços" data-emoji="🗺️" style="--acc:var(--pumpkin)">
-  <header class="s-head" style="margin-bottom:20px"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 11</span></div>
+  <header class="s-head" style="margin-bottom:20px"><div class="tag"><span class="chap">Equipes e espaços</span></div>
     <h2>Escala geral</h2></header>
   <div class="s-body">
     <div class="table-wrap">
-      <table>
+      <table class="tight">
         <thead><tr><th>Área</th><th>Responsável</th><th>Apresentação / Condução</th><th>Suporte</th><th>Mesa de som / Slides</th></tr></thead>
-        <tbody>
-          <tr><td><span class="sw" style="--s:var(--pumpkin)"></span>Auditório, Salão Comunal</td><td>Rafael Silveira</td><td>Fernanda, Gabriel, Giovane</td><td>Giovane</td><td>Rafael Silveira</td></tr>
-          <tr><td><span class="sw" style="--s:var(--purple)"></span>Trilha Magia, Sala 408</td><td>Jade</td><td>Jade, Gabriel Rebechi</td><td>Nathan</td><td class="dash">—</td></tr>
-          <tr><td><span class="sw" style="--s:var(--yellow)"></span>Trilha Lua Cheia, Sala 406</td><td>Gabi</td><td>Sandro, Gabi</td><td class="tbd">A definir</td><td class="dash">—</td></tr>
-          <tr><td><span class="sw" style="--s:var(--blue)"></span>Trilha Sentinela, Sala 409</td><td class="tbd">A definir</td><td class="tbd">A definir</td><td class="tbd">A definir</td><td class="tbd">A definir</td></tr>
-          <tr><td><span class="sw" style="--s:var(--green)"></span>Trilha Alquimia, Sala 410</td><td>Lucas</td><td>Mika, Lucas</td><td>Vinicius</td><td class="dash">—</td></tr>
-          <tr><td><span class="sw" style="--s:var(--red)"></span>Covil, Sala 401</td><td>Carol</td><td>Carol, Dani Castro</td><td>Natalie</td><td class="dash">—</td></tr>
-          <tr><td><span class="sw" style="--s:var(--moon)"></span>Credenciamento</td><td>Camila K</td><td>Gi Hossein, Bernardo</td><td class="dash">—</td><td class="dash">—</td></tr>
-          <tr><td><span class="sw" style="--s:var(--green)"></span>Patrocinadores</td><td>Tamires</td><td>Tati</td><td class="dash">—</td><td class="dash">—</td></tr>
-          <tr><td><span class="sw" style="--s:var(--pumpkin)"></span>Lounge, Pátio</td><td>Tanúbia</td><td>Tamires</td><td class="dash">—</td><td class="dash">—</td></tr>
-          <tr><td><span class="sw" style="--s:var(--moon)"></span>Entrega de Canecas</td><td>Fran</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td></tr>
-          <tr><td><span class="sw" style="--s:var(--red)"></span>Suporte Geral</td><td>Fernanda</td><td>Marcos, Guilherme</td><td class="dash">—</td><td class="dash">—</td></tr>
-          <tr><td><span class="sw" style="--s:var(--purple)"></span>Mídias</td><td>Annie</td><td>Micael, Annie, Alexandra</td><td class="dash">—</td><td class="dash">—</td></tr>
-        </tbody>
+        <tbody><tr><td><span class="sw" style="--s:var(--pumpkin)"></span>Auditório, Salão Comunal</td><td>Rafael Silveira</td><td>Fernanda, Coimbra, Giovane, José</td><td>Giovane</td><td>Rafael Silveira</td></tr><tr><td><span class="sw" style="--s:var(--purple)"></span>Trilha Magia, Sala 408</td><td>Jade</td><td>Jade, Gabriel Rebechi</td><td>Nathan</td><td class="dash">—</td></tr><tr><td><span class="sw" style="--s:var(--yellow)"></span>Trilha Lua Cheia, Sala 406</td><td>Gabi</td><td>Sandro, Gabi</td><td>Jéssica Maia</td><td class="dash">—</td></tr><tr><td><span class="sw" style="--s:var(--blue)"></span>Trilha Sentinela, Sala 409</td><td>Gabriela Carvalho</td><td>Gabriela Carvalho, João Lima</td><td>Bruno</td><td class="dash">—</td></tr><tr><td><span class="sw" style="--s:var(--green)"></span>Trilha Alquimia, Sala 410</td><td>Lucas</td><td>Mika, Lucas</td><td>Vinicius</td><td class="dash">—</td></tr><tr><td><span class="sw" style="--s:var(--red)"></span>Covil, Sala 401</td><td>Carol</td><td>Carol, Dani Castro</td><td>Natalie</td><td class="dash">—</td></tr><tr><td><span class="sw" style="--s:var(--moon)"></span>Credenciamento</td><td>Camila K</td><td>Gi Hossein, Bernardo, Gustavo Cabral, Camila M, Rafael Fantinel</td><td class="dash">—</td><td class="dash">—</td></tr><tr><td><span class="sw" style="--s:var(--green)"></span>Patrocinadores</td><td>Tamires</td><td>Tati</td><td class="dash">—</td><td class="dash">—</td></tr><tr><td><span class="sw" style="--s:var(--pumpkin)"></span>Espaço da comunidade, pátio</td><td>Tanúbia</td><td>Tamires</td><td class="dash">—</td><td class="dash">—</td></tr><tr><td><span class="sw" style="--s:var(--moon)"></span>Entrega de canecas</td><td>Fran</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td></tr><tr><td><span class="sw" style="--s:var(--red)"></span>Suporte Geral</td><td>Fernanda</td><td>Marcos, Guilherme, Coimbra, Jaque</td><td class="dash">—</td><td class="dash">—</td></tr><tr><td><span class="sw" style="--s:var(--purple)"></span>Mídias</td><td>Annie</td><td>Micael, Annie, Alexandra</td><td class="dash">—</td><td class="dash">—</td></tr><tr><td><span class="sw" style="--s:var(--blue)"></span>Palestrantes</td><td>Rafael Fantinel</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td></tr></tbody>
       </table>
     </div>
+    <a class="lnk-inline" href="https://docs.google.com/spreadsheets/d/1i1jw4mWZ-V4T1EE9ll70zHGGYRZC5go8EM3lFKR7q-E/edit?gid=2129326803#gid=2129326803" target="_blank" rel="noopener">Abrir a planilha da escala ↗</a>
   </div>
 </section>
 
-<!-- 13 RESP. SALA -->
 <section class="slide" data-title="Responsabilidades dos responsáveis de sala" data-chapter="Equipes e espaços" data-emoji="🔑" style="--acc:var(--pumpkin)">
-  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 12</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
     <h2>Responsabilidades gerais dos responsáveis de sala</h2></header>
   <div class="s-body">
     <div><p class="h">O responsável pela sala é responsável por</p>
@@ -563,24 +617,30 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 14 KIT -->
-<section class="slide" data-title="Kit operacional de cada sala" data-chapter="Equipes e espaços" data-emoji="🧰" style="--acc:var(--pumpkin)">
-  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 13</span></div>
-    <h2>Kit operacional de cada sala</h2><p class="sub">Cada sala terá sua própria Caixa de Responsabilidade.</p></header>
+<section class="slide" data-title="Caixa de apoio de cada sala" data-chapter="Equipes e espaços" data-emoji="🧰" style="--acc:var(--pumpkin)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
+    <h2>🧰 Caixa de apoio de cada sala</h2><p class="sub">Retire no Auditório. Revise antes de abrir a sala e devolva ao fim do evento.</p></header>
   <div class="s-body">
-    <div class="grid" style="--c:4">
-      <div class="panel"><p class="h">💻 Equipamentos</p><ul class="ticks" style="--c:1;--dot:var(--blue)"><li>1 notebook.</li><li>Apresentações carregadas.</li><li>Carregador.</li><li>Adaptadores necessários.</li><li>1 passador de slides.</li><li>Pilhas reserva.</li></ul></div>
-      <div class="panel"><p class="h">⏱️ Controle de tempo</p><ul class="ticks" style="--c:1;--dot:var(--yellow)"><li>2 timers.</li><li>Placas de tempo.</li></ul></div>
-      <div class="panel"><p class="h">📻 Comunicação</p><ul class="ticks" style="--c:1;--dot:var(--red)"><li>1 walkie-talkie.</li></ul></div>
-      <div class="panel"><p class="h">📋 Organização</p><ul class="ticks" style="--c:1;--dot:var(--green)"><li>Prancheta.</li><li>Cronograma impresso da sala.</li><li>To-do da sala.</li></ul></div>
-    </div>
-    <div class="callout stop"><span class="ic">⚠️</span><div><strong>Não há equipamento reserva.</strong>Cada sala e o credenciamento terão sua própria caixa com os materiais necessários.</div></div>
+    <ul class="check " style="--c:3" data-list="kit-sala">
+      <li><label><input type="checkbox"><span>2 timers</span></label></li>
+      <li><label><input type="checkbox"><span>1 passador de slides</span></label></li>
+      <li><label><input type="checkbox"><span>4 pilhas palito</span></label></li>
+      <li><label><input type="checkbox"><span>1 rádio comunicador (walkie-talkie)</span></label></li>
+      <li><label><input type="checkbox"><span>1 notebook</span></label></li>
+      <li><label><input type="checkbox"><span>20 Patos Pila</span></label></li>
+      <li><label><input type="checkbox"><span>2 canetas (preta e vermelha)</span></label></li>
+      <li><label><input type="checkbox"><span>Prancheta com cronograma impresso e placas de atenção</span></label></li>
+      <li><label><input type="checkbox"><span>10 garrafinhas de água</span></label></li>
+      <li><label><input type="checkbox"><span>1 passa ou repassa (brinquedo da dinâmica)</span></label></li>
+      <li><label><input type="checkbox"><span>1 extensão de tomadas</span></label></li>
+      <li><label><input type="checkbox"><span>Brindes dos palestrantes: conferir a quantidade de sacolas da trilha</span></label></li>
+    </ul>
+    <div class="callout stop"><span class="ic">⚠️</span><div><strong>Não há equipamento reserva.</strong>Cada sala, o credenciamento e o espaço da comunidade têm sua própria caixa. Cuide dela como responsabilidade da equipe.</div></div>
   </div>
 </section>
 
-<!-- 15 TEMPO -->
 <section class="slide" data-title="Controle de tempo" data-chapter="Equipes e espaços" data-emoji="⏱️" style="--acc:var(--pumpkin)">
-  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 14</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
     <h2>⏱️ Controle de tempo</h2><p class="sub">Cada sala terá dois timers.</p></header>
   <div class="s-body">
     <div class="grid" style="--c:2">
@@ -594,9 +654,8 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 16 REGRA PROGRAMAÇÃO -->
 <section class="slide" data-title="Regra de programação" data-chapter="Equipes e espaços" data-emoji="⚠️" style="--acc:var(--red)">
-  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 15</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
     <h2>⚠️ Regra de programação</h2></header>
   <div class="s-body">
     <div class="golden" style="--g:var(--red)"><small>A programação publicada deve ser respeitada</small><p style="font-size:56px">Não há alteração da programação.</p></div>
@@ -607,14 +666,13 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 17 AUDITÓRIO -->
 <section class="slide" data-title="Auditório, Salão Comunal" data-chapter="Equipes e espaços" data-emoji="🎙️" style="--acc:var(--pumpkin)">
-  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 16</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
     <h2>Auditório, Salão Comunal</h2></header>
   <div class="s-body">
     <div class="area" style="--a:var(--pumpkin)">
-      <div class="area-top"><span class="emo">🎤</span><div><span class="room">Salão Comunal</span><b>Auditório</b></div></div>
-      <div class="roles"><div class="role"><small>Responsável</small><span>Rafael Silveira</span></div><div class="role"><small>Condução</small><span>Fernanda, Gabriel, Giovane</span></div><div class="role"><small>Suporte</small><span>Giovane</span></div><div class="role"><small>Mesa de som / Slides</small><span>Rafael Silveira</span></div></div>
+      <div class="area-top"><span class="emo">🎤</span><div><span class="room">Salão Comunal · 1º andar · 194 lugares</span><b>Auditório</b></div></div>
+      <div class="roles"><div class="role"><small>Responsável</small><span>Rafael Silveira</span></div><div class="role"><small>Condução</small><span>Fernanda, Coimbra, Giovane, José</span></div><div class="role"><small>Suporte</small><span>Giovane</span></div><div class="role"><small>Mesa de som / Slides</small><span>Rafael Silveira</span></div></div>
     </div>
     <div class="grid split" style="--cols:1.3fr .7fr">
       <div><p class="h">Responsabilidades</p><ul class="ticks" style="--c:4"><li>Abertura.</li><li>Palco.</li><li>Microfones.</li><li>Slides.</li><li>Áudio.</li><li>Transmissão para o pátio.</li><li>Controle da apresentação.</li><li>Comunicação com a organização.</li></ul></div>
@@ -623,41 +681,63 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 18 TRILHAS -->
 <section class="slide" data-title="Trilhas: Magia, Lua Cheia, Sentinela e Alquimia" data-chapter="Equipes e espaços" data-emoji="🔮" style="--acc:var(--purple)">
-  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seções 17 a 20</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
     <h2>As quatro trilhas</h2></header>
   <div class="s-body">
     <div class="grid stretch" style="--c:4">
       <div class="area" style="--a:var(--purple)">
-        <div class="area-top"><span class="emo">🪄</span><div><span class="room">Sala 408</span><b>Trilha Magia</b></div></div>
+        <div class="area-top"><span class="emo">🪄</span><div><span class="room">Sala 408 · 54 lugares</span><b>Trilha Magia</b></div></div>
         <div class="roles" style="--r:1"><div class="role"><small>Responsável</small><span>Jade</span></div><div class="role"><small>Condução</small><span>Jade + Gabriel Rebechi</span></div><div class="role"><small>Suporte</small><span>Nathan</span></div></div>
-        <p class="muted" style="font-size:15px;margin-top:12px">O suporte é responsável por:</p>
-        <ul class="mini" style="margin-top:6px"><li>Tempo</li><li>Slides</li><li>Equipamentos</li><li>Iluminação</li><li>Ar-condicionado</li><li>Comunicação via rádio</li></ul>
       </div>
       <div class="area" style="--a:var(--yellow)">
-        <div class="area-top"><span class="emo">🌕</span><div><span class="room">Sala 406</span><b>Trilha Lua Cheia</b></div></div>
-        <div class="roles" style="--r:1"><div class="role"><small>Responsável</small><span>Gabi</span></div><div class="role"><small>Condução</small><span>Sandro + Gabi</span></div><div class="role tbd"><small>Suporte</small><span>A definir</span></div></div>
+        <div class="area-top"><span class="emo">🌕</span><div><span class="room">Sala 406 · 48 lugares</span><b>Trilha Lua Cheia</b></div></div>
+        <div class="roles" style="--r:1"><div class="role"><small>Responsável</small><span>Gabi</span></div><div class="role"><small>Condução</small><span>Sandro + Gabi</span></div><div class="role"><small>Suporte</small><span>Jéssica Maia</span></div></div>
       </div>
       <div class="area" style="--a:var(--blue)">
-        <div class="area-top"><span class="emo">🛡️</span><div><span class="room">Sala 409</span><b>Trilha Sentinela</b></div></div>
-        <div class="roles" style="--r:1"><div class="role tbd"><small>Responsável</small><span>A definir</span></div><div class="role tbd"><small>Condução</small><span>A definir</span></div><div class="role tbd"><small>Suporte</small><span>A definir</span></div><div class="role tbd"><small>Mesa de som / Slides</small><span>A definir</span></div></div>
+        <div class="area-top"><span class="emo">🛡️</span><div><span class="room">Sala 409 · 60 lugares</span><b>Trilha Sentinela</b></div></div>
+        <div class="roles" style="--r:1"><div class="role"><small>Responsável</small><span>Gabriela Carvalho</span></div><div class="role"><small>Condução</small><span>Gabriela Carvalho + João Lima</span></div><div class="role"><small>Suporte</small><span>Bruno</span></div></div>
       </div>
       <div class="area" style="--a:var(--green)">
-        <div class="area-top"><span class="emo">⚗️</span><div><span class="room">Sala 410</span><b>Trilha Alquimia</b></div></div>
+        <div class="area-top"><span class="emo">⚗️</span><div><span class="room">Sala 410 · 54 lugares</span><b>Trilha Alquimia</b></div></div>
         <div class="roles" style="--r:1"><div class="role"><small>Responsável</small><span>Lucas</span></div><div class="role"><small>Condução</small><span>Mika + Lucas</span></div><div class="role"><small>Suporte</small><span>Vinicius</span></div></div>
+      </div>
+    </div>
+    <div class="callout warn"><span class="ic">💺</span><div><strong>Sala sujeita a ocupação.</strong>Em workshops, não exceder o número de pessoas sentadas.</div></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Checklist de cada trilha" data-chapter="Equipes e espaços" data-emoji="🎃" style="--acc:var(--purple)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
+    <h2>✅ Checklist de cada trilha</h2><p class="sub">Vale para todas as salas. Quem faz cada item está indicado.</p></header>
+  <div class="s-body">
+    <div class="grid split" style="--cols:1.3fr .7fr">
+      <div style="display:grid;gap:10px;align-content:start"><ul class="check " style="--c:2" data-list="trilha">
+      <li><label><input type="checkbox"><span>Conferir e testar projetor, passador de slides e microfones <em class="wt">Responsável</em></span></label></li>
+      <li><label><input type="checkbox"><span>Notebook funcionando, com login no Gmail feito pela pessoa responsável para apresentar os conteúdos <em class="wt">Responsável</em></span></label></li>
+      <li><label><input type="checkbox"><span>Ligar os canhões de LED no início do dia <em class="wt">Responsável</em></span></label></li>
+      <li><label><input type="checkbox"><span>Desligar os canhões de LED ao meio-dia <em class="wt">Responsável</em></span></label></li>
+      <li><label><input type="checkbox"><span>Ligar os canhões de LED na volta do almoço <em class="wt">Responsável</em></span></label></li>
+      <li><label><input type="checkbox"><span>Patos Pila à mão <em class="wt">Suporte entrega</em></span></label></li>
+      <li><label><input type="checkbox"><span>Placas de tempo à mão <em class="wt">Suporte mostra</em></span></label></li>
+      <li><label><input type="checkbox"><span>Cronômetros ajustados a cada palestra: 1 para o suporte, 1 para quem palestra <em class="wt">Suporte entrega</em></span></label></li>
+      <li><label><input type="checkbox"><span>A cada palestra, entregar garrafinha de água a quem palestra</span></label></li>
+      <li><label><input type="checkbox"><span>Ao final de cada palestra, entregar a sacola de brinde e, se der, tirar uma foto com a galera</span></label></li>
+    </ul></div>
+      <div style="display:grid;gap:14px;align-content:start">
+        <div class="panel" style="border-color:rgba(234,67,53,.4)"><p class="h">🚨 Não esquecer</p><ul class="ticks" style="--c:1;--dot:var(--red)"><li>Tempos bem delimitados: sem exceção para passar do tempo.</li><li>Workshops: não exceder o número de pessoas sentadas.</li><li>Entregar os brindes.</li><li>Devolver a sala organizada como recebemos.</li><li>Olhar atento e presente. Evitar dispersões.</li></ul></div>
+        <div class="callout"><span class="ic">🏁</span><div><strong>Check-out</strong>Após as últimas perguntas da última palestra, junte os itens e chame o Suporte Geral (Guilherme e Marcos) para levar ao carro.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 19 COVIL -->
 <section class="slide" data-title="Covil, Sala 401" data-chapter="Equipes e espaços" data-emoji="🐺" style="--acc:var(--red)">
-  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 21</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
     <h2>🐺 Covil</h2></header>
   <div class="s-body">
     <div class="area" style="--a:var(--red)">
-      <div class="area-top"><span class="emo">🐺</span><div><span class="room">Sala 401</span><b>Covil: networking estruturado</b></div></div>
+      <div class="area-top"><span class="emo">🐺</span><div><span class="room">Sala 401 · 40 lugares</span><b>Covil: networking estruturado</b></div></div>
       <div class="roles" style="--r:3"><div class="role"><small>Responsável</small><span>Carol</span></div><div class="role"><small>Condução</small><span>Carol, Dani Castro</span></div><div class="role"><small>Suporte</small><span>Natalie</span></div></div>
     </div>
     <div><p class="h">Além da organização tradicional de sala</p>
@@ -665,13 +745,12 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 20 PATROCINADORES -->
 <section class="slide" data-title="Patrocinadores" data-chapter="Equipes e espaços" data-emoji="🤝" style="--acc:var(--green)">
-  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 22</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
     <h2>Patrocinadores</h2></header>
   <div class="s-body">
     <div class="area" style="--a:var(--green)">
-      <div class="area-top"><span class="emo">🤝</span><div><span class="room">Espaço dos patrocinadores</span><b>Patrocinadores</b></div></div>
+      <div class="area-top"><span class="emo">🤝</span><div><span class="room">Pátio</span><b>Patrocinadores</b></div></div>
       <div class="roles" style="--r:2"><div class="role"><small>Responsável</small><span>Tamires</span></div><div class="role"><small>Condução</small><span>Tati</span></div></div>
     </div>
     <div><p class="h">Responsabilidades</p>
@@ -680,25 +759,36 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 21 LOUNGE -->
-<section class="slide" data-title="Lounge, Pátio e espaço GDGs" data-chapter="Equipes e espaços" data-emoji="🦆" style="--acc:var(--pumpkin)">
-  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 23</span></div>
-    <h2>Lounge, Pátio e espaço GDGs</h2></header>
+<section class="slide" data-title="Espaço da comunidade, pátio" data-chapter="Equipes e espaços" data-emoji="🦆" style="--acc:var(--pumpkin)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
+    <h2>🦆 Espaço da comunidade, pátio</h2></header>
   <div class="s-body">
-    <div class="area" style="--a:var(--pumpkin)">
-      <div class="area-top"><span class="emo">🎶</span><div><span class="room">Pátio</span><b>Lounge e espaço GDGs</b></div></div>
-      <div class="roles" style="--r:2"><div class="role"><small>Responsável</small><span>Tanúbia</span></div><div class="role"><small>Condução</small><span>Tamires</span></div></div>
-    </div>
-    <div class="grid" style="--c:2">
-      <div class="panel"><p class="h">Materiais</p><ul class="ticks" style="--c:1"><li>Kit de primeiros socorros.</li><li>Patos de brinde para retirada.</li><li>Caixa de som.</li><li>Materiais da dinâmica/experiência.</li><li>Sinalização necessária.</li></ul></div>
-      <div class="panel"><p class="h">Responsabilidades</p><ul class="ticks" style="--c:1"><li>Organização do espaço.</li><li>Orientação dos participantes.</li><li>Apoio às experiências.</li><li>Apoio à transmissão da abertura.</li><li>Comunicação com Suporte Geral.</li></ul></div>
+    <div class="pins"><span class="pin">👤 Responsável: Tanúbia</span><span class="pin">🎙️ Condução: Tamires</span><span class="pin">🩹 Kit de primeiros socorros fica aqui</span><span class="pin">🏁 Fecha às 16h30</span></div>
+    <div class="grid split" style="--cols:1.4fr .6fr">
+      <div style="display:grid;gap:10px;align-content:start"><p class="h" style="margin:0">✅ Checklist do dia</p>
+      <ul class="check " style="--c:2" data-list="comunidade-dia">
+      <li><label><input type="checkbox"><span>Mesas organizadas com toalhas</span></label></li>
+      <li><label><input type="checkbox"><span>Pufs posicionados</span></label></li>
+      <li><label><input type="checkbox"><span>Mesa: canetas para o nome no crachá, doces, itens do ano passado (1 por pessoa) e patos para troca</span></label></li>
+      <li><label><input type="checkbox"><span>Sinalização: cartazes A4, banners, totens</span></label></li>
+      <li><label><input type="checkbox"><span>Caixa de itens pronta</span></label></li>
+      <li><label><input type="checkbox"><span>Caixa de som com música ligada</span></label></li>
+      <li><label><input type="checkbox"><span>Walkie-talkie ligado e funcional</span></label></li>
+      <li><label><input type="checkbox"><span>Kit de primeiros socorros</span></label></li>
+      <li><label><input type="checkbox"><span>Fardinho de água para Staff e patrocinadores</span></label></li>
+      <li><label><input type="checkbox"><span>Torre de tomadas perto dos pufs</span></label></li>
+      <li><label><input type="checkbox"><span>Totem Ambrosia posicionado</span></label></li>
+    </ul></div>
+      <div style="display:grid;gap:14px;align-content:start">
+        <div class="panel"><p class="h">📦 Caixa de apoio</p><ul class="mini" style="margin:0"><li>Patos de brinde</li><li>Bolinhas de ping pong</li><li>Primeiros socorros</li><li>2 canetas</li><li>Prancheta com cronograma</li><li>10 garrafinhas de água</li><li>1 walkie-talkie</li><li>Caixa de som</li><li>1 extensão</li></ul></div>
+        <div class="callout"><span class="ic">🏁</span><div><strong>Check-out às 16h30</strong>Junte os itens na caixa, chame o Suporte Geral para levar ao carro e retire as sinalizações.</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 22 MÍDIAS -->
 <section class="slide" data-title="Mídias" data-chapter="Equipes e espaços" data-emoji="📸" style="--acc:var(--purple)">
-  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seção 24</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
     <h2>Mídias</h2></header>
   <div class="s-body">
     <div class="area" style="--a:var(--purple)">
@@ -711,16 +801,15 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 23 SUPORTE GERAL + OCORRÊNCIAS -->
 <section class="slide" data-title="Suporte Geral e ocorrências" data-chapter="Equipes e espaços" data-emoji="🛠️" style="--acc:var(--red)">
-  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span><span class="num">Seções 25 e 26</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
     <h2>Suporte Geral e ocorrências</h2><p class="sub">O Suporte Geral funciona como a central de operações do evento.</p></header>
   <div class="s-body">
     <div class="grid split" style="--cols:1.15fr .85fr">
       <div style="display:grid;gap:18px">
         <div class="area" style="--a:var(--red)">
           <div class="area-top"><span class="emo">🛠️</span><div><span class="room">Central de operações</span><b>Suporte Geral</b></div></div>
-          <div class="roles" style="--r:2"><div class="role"><small>Responsável</small><span>Fernanda dos Santos</span></div><div class="role"><small>Equipe</small><span>Marcos, Guilherme</span></div></div>
+          <div class="roles" style="--r:2"><div class="role"><small>Responsável</small><span>Fernanda dos Santos</span></div><div class="role"><small>Equipe</small><span>Marcos, Guilherme, Coimbra, Jaque</span></div></div>
         </div>
         <div><p class="h">Atende</p><ul class="mini" style="margin:0"><li>Problemas de sala</li><li>Problemas técnicos</li><li>Participantes</li><li>Palestrantes</li><li>Patrocinadores</li><li>Credenciamento</li><li>Energia</li><li>Internet</li><li>Emergências</li><li>Ocorrências</li><li>Problemas de infraestrutura</li></ul></div>
       </div>
@@ -728,16 +817,30 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
         <p class="h" style="margin:0">🚩 Ocorrências</p>
         <p>Qualquer voluntário pode identificar e comunicar uma ocorrência.</p>
         <div class="callout info"><span class="ic">📻</span><div><strong>Como fazer</strong>Chamar o Suporte Geral pelo walkie-talkie.</div></div>
-        <p><b>Marcos e Guilherme</b> atuam diretamente na resolução das ocorrências.</p>
+        <p><b>A equipe do Suporte Geral</b> atua diretamente na resolução das ocorrências.</p>
         <p><b>Fernanda</b> é responsável pelas decisões e encaminhamentos que exigirem coordenação.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 24 PALESTRANTE ATRASADO + ENERGIA -->
+<section class="slide" data-title="Seguranças e equipe contratada" data-chapter="Equipes e espaços" data-emoji="🛡️" style="--acc:var(--blue)">
+  <header class="s-head"><div class="tag"><span class="chap">Equipes e espaços</span></div>
+    <h2>🛡️ Seguranças e equipe contratada</h2><p class="sub">Saiba o nome de quem trabalha com a gente. Todos chegam às 08h.</p></header>
+  <div class="s-body">
+    <div class="grid" style="--c:3">
+      <div class="area" style="--a:var(--blue)"><div class="area-top"><span class="emo">👮</span><div><span class="room">Credenciamento</span><b>Ana Paula Roxo</b></div></div><p class="muted" style="font-size:16px">Segurança da entrada e do credenciamento.</p></div>
+      <div class="area" style="--a:var(--blue)"><div class="area-top"><span class="emo">👮</span><div><span class="room">4º andar</span><b>José Luiz da Silva Santos</b></div></div><p class="muted" style="font-size:16px">Segurança do andar das salas.</p></div>
+      <div class="area" style="--a:var(--red)"><div class="area-top"><span class="emo">🚒</span><div><span class="room">Bombeira civil</span><b>Paula Simone de Oliveira Medeiros</b></div></div><p class="muted" style="font-size:16px">Primeiro apoio em qualquer emergência.</p></div>
+    </div>
+    <div><p class="h">Demais serviços</p>
+    <div class="roles" style="--r:5"><div class="role"><small>📸 Fotografia</small><span>Jonathan Ribas</span></div><div class="role"><small>🎬 Storymaker</small><span>Alexandra Astarita B. Lamarque</span></div><div class="role"><small>🎬 Storymaker</small><span>Anderson Rafael P. Lamarque</span></div><div class="role"><small>📷 Cabine fotográfica</small><span>Fabiano, Cabine da Emoção · 09h30</span></div><div class="role"><small>🧹 Limpeza</small><span>Francine Fernandes</span></div></div></div>
+    <div class="callout info"><span class="ic">📻</span><div>Contato com segurança e portaria passa pela <b>Fernanda</b>. Em qualquer dúvida, chame o Suporte Geral.</div></div>
+  </div>
+</section>
+
 <section class="slide" data-title="Palestrante atrasado e energia" data-chapter="Quando algo sai do previsto" data-emoji="🕯️" style="--acc:var(--red)">
-  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span><span class="num">Seções 27 e 28</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span></div>
     <h2>Palestrante atrasado e energia</h2></header>
   <div class="s-body">
     <div class="grid stretch" style="--c:2">
@@ -757,15 +860,14 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 25 INTERNET + FACULDADE -->
 <section class="slide" data-title="Internet e Faculdade Dom Bosco" data-chapter="Quando algo sai do previsto" data-emoji="📶" style="--acc:var(--red)">
-  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span><span class="num">Seções 29 e 30</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span></div>
     <h2>Internet e Faculdade Dom Bosco</h2></header>
   <div class="s-body">
     <div class="grid stretch" style="--c:2">
       <div class="panel" style="display:grid;gap:14px;align-content:start">
         <p class="h" style="margin:0">📶 Internet</p>
-        <p>Cada equipe deve utilizar os recursos disponíveis na sua área.</p>
+        <p>A rede Wi-Fi de visitantes da Faculdade funciona e pode ser usada pela equipe e pelo público.</p>
         <div class="callout warn"><span class="ic">⚠️</span><div><strong>Plano B</strong>Sempre orientar que, se possível, os voluntários tenham o 5G/dados móveis funcionando no celular. Isso pode ser necessário em caso de instabilidade da internet.</div></div>
       </div>
       <div class="panel" style="display:grid;gap:14px;align-content:start">
@@ -777,10 +879,9 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 26 EMERGÊNCIAS -->
 <section class="slide" data-title="Emergências" data-chapter="Quando algo sai do previsto" data-emoji="🚑" style="--acc:var(--red)">
-  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span><span class="num">Seção 31</span></div>
-    <h2>🚨 Emergências</h2><p class="sub">Responsável: Fernanda dos Santos</p></header>
+  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span></div>
+    <h2>🚨 Emergências</h2><p class="sub">Responsável: Fernanda dos Santos · Bombeira civil no local: Paula Simone de Oliveira Medeiros</p></header>
   <div class="s-body">
     <div class="grid" style="--c:2">
       <div><p class="h">Em caso de emergência</p>
@@ -792,16 +893,15 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 27 SOCORROS + ACHADOS + FOTO -->
 <section class="slide" data-title="Primeiros socorros, achados e perdidos e foto oficial" data-chapter="Quando algo sai do previsto" data-emoji="🩹" style="--acc:var(--red)">
-  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span><span class="num">Seções 32 a 34</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span></div>
     <h2>Primeiros socorros, achados e perdidos e foto</h2></header>
   <div class="s-body">
     <div class="grid stretch" style="--c:3">
       <div class="panel" style="display:grid;gap:12px;align-content:start">
         <span class="fi">🩹</span><p class="h" style="margin:0">Kit de primeiros socorros</p>
-        <span class="pin" style="justify-self:start">📍 Credenciamento</span>
-        <p>Caso seja necessário, chamar o responsável pelo credenciamento ou o Suporte Geral.</p>
+        <span class="pin" style="justify-self:start">📍 Espaço da comunidade, pátio</span>
+        <p>Caso seja necessário, chamar a responsável pelo espaço da comunidade (Tanúbia) ou o Suporte Geral. A bombeira civil também está no evento.</p>
       </div>
       <div class="panel" style="display:grid;gap:12px;align-content:start">
         <span class="fi">🎒</span><p class="h" style="margin:0">Achados e perdidos</p>
@@ -818,9 +918,8 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 28 ALMOÇO -->
 <section class="slide" data-title="Almoço" data-chapter="Quando algo sai do previsto" data-emoji="🍴" style="--acc:var(--red)">
-  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span><span class="num">Seção 35</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Quando algo sai do previsto</span></div>
     <h2>🍴 Almoço</h2><p class="sub">O almoço será organizado por revezamento.</p></header>
   <div class="s-body">
     <div class="golden" style="--g:var(--red)"><small>Regra</small><p>Nenhuma área crítica pode ficar sem cobertura.</p></div>
@@ -833,33 +932,32 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 29 SALA DO STAFF -->
 <section class="slide" data-title="Sala do Staff" data-chapter="Base e materiais" data-emoji="☕" style="--acc:var(--green)">
-  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span><span class="num">Seção 36</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span></div>
     <h2>🧑‍💻 Sala do Staff</h2><p class="sub">A Sala do Staff será a base operacional.</p></header>
   <div class="s-body">
     <div><p class="h">Deve conter</p>
     <ul class="ticks" style="--c:4;--dot:var(--green)"><li>Coffee break durante todo o dia.</li><li>Café.</li><li>Água.</li><li>Energéticos.</li><li>Sacolas individuais.</li><li>Mimos.</li><li>Vouchers de almoço.</li><li>Materiais extras.</li><li>Cronograma geral.</li><li>Materiais recolhidos das salas.</li><li>Caixas desmontadas/recolhidas.</li></ul></div>
-    <div class="callout good"><span class="ic">🧹</span><div><strong>Regra</strong>Manter a sala organizada durante todo o evento.</div></div>
+    <div class="grid" style="--c:2"><div class="callout stop"><span class="ic">🔒</span><div><strong>Só Staff entra.</strong>Não leve pessoas que não são do Staff para a sala. A segurança estará de olho.</div></div><div class="callout good"><span class="ic">🧹</span><div><strong>Regra</strong>Manter a sala organizada durante todo o evento.</div></div></div>
   </div>
 </section>
 
-<!-- 30 CAIXAS -->
-<section class="slide" data-title="Caixas operacionais" data-chapter="Base e materiais" data-emoji="📦" style="--acc:var(--green)">
-  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span><span class="num">Seção 37</span></div>
-    <h2>📦 Caixas operacionais</h2><p class="sub">Cada posição que possuir materiais deve manter tudo dentro de sua respectiva caixa.</p></header>
+<section class="slide" data-title="Caixas de apoio: regras" data-chapter="Base e materiais" data-emoji="📦" style="--acc:var(--green)">
+  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span></div>
+    <h2>📦 Caixas de apoio: regras</h2><p class="sub">Cada posição com materiais mantém tudo dentro da sua caixa, do começo ao fim.</p></header>
   <div class="s-body">
-    <div class="grid" style="--c:2">
-      <div class="panel"><p class="h">Caixa de sala</p><ul class="ticks" style="--c:3;--dot:var(--blue)"><li>Notebook.</li><li>Carregador.</li><li>Passador.</li><li>Pilhas.</li><li>Timers.</li><li>Placas.</li><li>Walkie-talkie.</li><li>Prancheta.</li><li>Cronograma.</li></ul></div>
-      <div class="panel"><p class="h">Caixa de credenciamento</p><ul class="ticks" style="--c:3;--dot:var(--green)"><li>Equipamentos.</li><li>Carregadores.</li><li>5 carregadores portáteis.</li><li>Cabos.</li><li>Extensão.</li><li>Listas.</li><li>Crachás.</li><li>Kit de primeiros socorros.</li><li>Achados e perdidos.</li></ul></div>
+    <div class="flow"><span>Retirar no Auditório</span><b>→</b><span>Conferir os itens</span><b>→</b><span>Usar e cuidar</span><b>→</b><span>Conferir de novo</span><b>→</b><span>Suporte Geral leva ao carro</span></div>
+    <div class="grid stretch" style="--c:3">
+      <div class="panel"><p class="h">🚪 Salas</p><p class="muted">Timers, passador, pilhas, walkie, notebook, Patos Pila, canetas, prancheta, água, passa ou repassa, extensão e brindes.</p></div>
+      <div class="panel"><p class="h">🎟️ Credenciamento</p><p class="muted">Canetas, prancheta com impressos, água, 2 extensões, walkie, 2 powerbanks e notebook.</p></div>
+      <div class="panel"><p class="h">🦆 Espaço da comunidade</p><p class="muted">Patos de brinde, bolinhas de ping pong, primeiros socorros, canetas, prancheta, água, walkie, caixa de som e extensão.</p></div>
     </div>
-    <div class="callout stop"><span class="ic">⚠️</span><div><strong>Não existem equipamentos extras/reserva.</strong>Cuidar dos materiais como responsabilidade da equipe.</div></div>
+    <div class="callout stop"><span class="ic">⚠️</span><div><strong>Não existem equipamentos extras ou reserva.</strong>Cuidar dos materiais é responsabilidade da equipe.</div></div>
   </div>
 </section>
 
-<!-- 31 IMPRESSOS + CRACHÁS -->
 <section class="slide" data-title="Materiais impressos e crachás" data-chapter="Base e materiais" data-emoji="🪪" style="--acc:var(--green)">
-  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span><span class="num">Seções 38 e 39</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span></div>
     <h2>Materiais impressos e crachás</h2></header>
   <div class="s-body">
     <div class="grid" style="--c:2">
@@ -884,27 +982,25 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 32 DESMONTAGEM SALAS -->
 <section class="slide" data-title="Desmontagem das salas" data-chapter="Base e materiais" data-emoji="🧹" style="--acc:var(--green)">
-  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span><span class="num">Seção 40</span></div>
-    <h2>🧹 Desmontagem das salas</h2><p class="sub">Começa ao final da última palestra/atividade da respectiva sala. Responsáveis: responsável da sala + suporte de sala.</p></header>
+  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span></div>
+    <h2>🧹 Desmontagem das salas</h2><p class="sub">Começa após as últimas perguntas da última palestra da sala. Responsáveis: responsável da sala + suporte.</p></header>
   <div class="s-body">
-    <ol class="steps" style="--c:4"><li>Conferir todos os materiais.</li><li>Recolher notebook.</li><li>Recolher carregador.</li><li>Recolher passador.</li><li>Recolher pilhas.</li><li>Recolher timers.</li><li>Recolher placas.</li><li>Recolher walkie-talkie.</li><li>Recolher prancheta.</li><li>Conferir papéis importantes.</li><li>Colocar tudo dentro da caixa.</li><li>Levar a caixa para a Sala do Staff.</li><li>Depois, descer para o Auditório.</li></ol>
+    <ol class="steps" style="--c:4"><li>Conferir todos os itens da caixa de apoio.</li><li>Recolher notebook e carregador.</li><li>Recolher passador e pilhas.</li><li>Recolher timers e placas.</li><li>Recolher walkie-talkie e prancheta.</li><li>Recolher extensão e Patos Pila que sobraram.</li><li>Retirar sinalizações e descartar folhas.</li><li>Separar documentos importantes.</li><li>Deixar a sala como recebemos.</li><li>Colocar tudo dentro da caixa.</li><li>Chamar o Suporte Geral (Guilherme e Marcos) para levar ao carro.</li><li>Seguir para o Auditório, para o encerramento.</li></ol>
     <div><p class="h">Descarte</p>
-    <div class="badges"><div class="badge" style="--b:var(--faint)"><b>Papéis sem importância</b><small>→ lixo</small></div><div class="badge" style="--b:var(--faint)"><b>Decorações descartáveis</b><small>→ lixo</small></div><div class="badge" style="--b:var(--pumpkin)"><b>Documentos importantes</b><small>→ Sala do Staff</small></div></div></div>
+    <div class="badges"><div class="badge" style="--b:var(--faint)"><b>Folhas sem importância</b><small>→ lixo</small></div><div class="badge" style="--b:var(--faint)"><b>Decorações descartáveis</b><small>→ lixo</small></div><div class="badge" style="--b:var(--pumpkin)"><b>Documentos importantes</b><small>→ Sala do Staff</small></div></div></div>
   </div>
 </section>
 
-<!-- 33 DESMONTAGEM CRED + GERAL -->
 <section class="slide" data-title="Desmontagem do credenciamento e geral" data-chapter="Base e materiais" data-emoji="🧾" style="--acc:var(--green)">
-  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span><span class="num">Seções 41 e 42</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Base e materiais</span></div>
     <h2>Desmontagem do credenciamento e geral</h2></header>
   <div class="s-body">
     <div class="grid split" style="--cols:1.1fr .9fr">
       <div><p class="h">🧾 Credenciamento encerra às 16h. Após o encerramento:</p>
-        <ol class="steps" style="--c:2"><li>Guardar equipamentos.</li><li>Guardar carregadores.</li><li>Guardar carregadores portáteis.</li><li>Guardar cabos.</li><li>Guardar extensão.</li><li>Guardar listas.</li><li>Guardar crachás restantes.</li><li>Guardar materiais.</li><li>Recolher achados e perdidos.</li><li>Guardar kit de primeiros socorros.</li><li>Colocar tudo na caixa.</li><li>Levar a caixa para a Sala do Staff.</li></ol></div>
+        <ol class="steps" style="--c:2"><li>Encerrar o credenciamento às 16h.</li><li>Conferir se todos os check-ins foram processados.</li><li>Ficou algo pendente? Falar com a Fernanda.</li><li>Guardar notebook, powerbanks e extensões.</li><li>Guardar canetas, prancheta, listas e crachás restantes.</li><li>Recolher os achados e perdidos.</li><li>Organizar na caixa os itens que voltam.</li><li>Chamar o Suporte Geral para levar ao carro.</li><li>Retirar as sinalizações e encaminhar para guardar.</li></ol></div>
       <div style="display:grid;gap:14px">
-        <div class="panel"><p class="h">🏗️ Desmontagem geral</p><p class="muted" style="margin-bottom:10px">O Suporte Geral (Guilherme e Marcos) auxilia na retirada dos itens maiores e pode apoiar na:</p>
+        <div class="panel"><p class="h">🏗️ Desmontagem geral</p><p class="muted" style="margin-bottom:10px">O Suporte Geral (Guilherme, Marcos, Coimbra e Jaque) auxilia na retirada dos itens maiores e pode apoiar na:</p>
           <ul class="mini" style="margin:0"><li>Retirada de banners</li><li>Organização de mesas</li><li>Guarda de estruturas</li><li>Transporte de materiais</li><li>Organização final dos espaços</li></ul></div>
         <div class="callout warn"><span class="ic">📌</span><div><strong>Importante</strong>Os responsáveis de cada área continuam responsáveis por seus próprios materiais. O Suporte Geral auxilia na logística, não substitui a conferência de cada equipe.</div></div>
       </div>
@@ -912,28 +1008,31 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 34 CHECKLIST ABERTURA -->
 <section class="slide" data-title="Checklist de abertura de cada sala" data-chapter="Checklists e pendências" data-emoji="✅" style="--acc:var(--yellow)">
-  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span><span class="num">Seção 43</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span></div>
     <h2>Checklist de abertura de cada sala</h2><p class="sub">Antes das 09h.</p></header>
   <div class="s-body">
-    <ul class="check" style="--c:4" data-list="abertura-sala">
+    <ul class="check " style="--c:4" data-list="abertura-sala-v2">
       <li><label><input type="checkbox"><span>Sala aberta</span></label></li>
       <li><label><input type="checkbox"><span>Cadeiras organizadas</span></label></li>
       <li><label><input type="checkbox"><span>Iluminação funcionando</span></label></li>
+      <li><label><input type="checkbox"><span>Canhões de LED ligados</span></label></li>
       <li><label><input type="checkbox"><span>Ar-condicionado funcionando</span></label></li>
-      <li><label><input type="checkbox"><span>Notebook ligado</span></label></li>
+      <li><label><input type="checkbox"><span>Projetor testado</span></label></li>
+      <li><label><input type="checkbox"><span>Notebook ligado e logado</span></label></li>
       <li><label><input type="checkbox"><span>Apresentações conferidas</span></label></li>
       <li><label><input type="checkbox"><span>Carregador conectado</span></label></li>
-      <li><label><input type="checkbox"><span>Adaptadores disponíveis</span></label></li>
+      <li><label><input type="checkbox"><span>Extensão posicionada</span></label></li>
       <li><label><input type="checkbox"><span>Passador funcionando</span></label></li>
       <li><label><input type="checkbox"><span>Pilhas reserva</span></label></li>
       <li><label><input type="checkbox"><span>Timer do suporte</span></label></li>
       <li><label><input type="checkbox"><span>Timer do palestrante</span></label></li>
       <li><label><input type="checkbox"><span>Placas de tempo</span></label></li>
       <li><label><input type="checkbox"><span>Walkie-talkie funcionando</span></label></li>
-      <li><label><input type="checkbox"><span>Prancheta</span></label></li>
-      <li><label><input type="checkbox"><span>Cronograma impresso</span></label></li>
+      <li><label><input type="checkbox"><span>Prancheta e cronograma</span></label></li>
+      <li><label><input type="checkbox"><span>Patos Pila à mão</span></label></li>
+      <li><label><input type="checkbox"><span>Garrafinhas de água</span></label></li>
+      <li><label><input type="checkbox"><span>Brindes dos palestrantes conferidos</span></label></li>
       <li><label><input type="checkbox"><span>Próxima sessão conferida</span></label></li>
       <li><label><input type="checkbox"><span>Palestrante localizado</span></label></li>
       <li><label><input type="checkbox"><span>Microfone testado, se houver</span></label></li>
@@ -941,14 +1040,13 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 35 CHECKLIST ENCERRAMENTO + FINAL -->
 <section class="slide" data-title="Checklists de encerramento e final do Staff" data-chapter="Checklists e pendências" data-emoji="🏁" style="--acc:var(--yellow)">
-  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span><span class="num">Seções 44 e 45</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span></div>
     <h2>Encerramento da sala e checklist final</h2></header>
   <div class="s-body">
     <div class="grid split" style="--cols:1.25fr .75fr">
       <div style="display:grid;gap:12px"><p class="h" style="margin:0">Checklist de encerramento de cada sala</p>
-        <ul class="check" style="--c:2" data-list="encerramento-sala">
+        <ul class="check" style="--c:2" data-list="encerramento-sala-v2">
           <li><label><input type="checkbox"><span>Última atividade encerrada</span></label></li>
           <li><label><input type="checkbox"><span>Notebook guardado</span></label></li>
           <li><label><input type="checkbox"><span>Carregador guardado</span></label></li>
@@ -958,11 +1056,11 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
           <li><label><input type="checkbox"><span>Placas recolhidas</span></label></li>
           <li><label><input type="checkbox"><span>Walkie-talkie recolhido</span></label></li>
           <li><label><input type="checkbox"><span>Prancheta recolhida</span></label></li>
-          <li><label><input type="checkbox"><span>Cronograma recolhido</span></label></li>
+          <li><label><input type="checkbox"><span>Cronograma e extensão recolhidos</span></label></li>
           <li><label><input type="checkbox"><span>Documentos importantes separados</span></label></li>
           <li><label><input type="checkbox"><span>Sala conferida</span></label></li>
           <li><label><input type="checkbox"><span>Caixa fechada</span></label></li>
-          <li><label><input type="checkbox"><span>Caixa levada para Sala do Staff</span></label></li>
+          <li><label><input type="checkbox"><span>Caixa entregue ao Suporte Geral</span></label></li>
           <li><label><input type="checkbox"><span>Ocorrências comunicadas</span></label></li>
         </ul></div>
       <div style="display:grid;gap:12px"><p class="h" style="margin:0">Final do Staff: antes de deixar o evento</p>
@@ -981,25 +1079,25 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
   </div>
 </section>
 
-<!-- 36 PONTOS FOCAIS -->
 <section class="slide" data-title="Pontos focais" data-chapter="Checklists e pendências" data-emoji="👑" style="--acc:var(--yellow)">
-  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span><span class="num">Seção 46</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span></div>
     <h2>Pontos focais</h2></header>
   <div class="s-body">
-    <div class="grid stretch" style="--c:3">
+    <div class="grid stretch" style="--c:4">
       <div class="panel" style="border-color:rgba(255,138,31,.4)"><span class="fi">👑</span><p class="muted" style="font-size:16px">Coordenação geral</p><div class="who">Fernanda dos Santos</div>
         <ul class="ticks" style="--c:1"><li>Decisões operacionais.</li><li>Emergências.</li><li>Faculdade Dom Bosco.</li><li>Segurança/portaria.</li><li>Palestrantes atrasados.</li><li>Problemas de ingresso que necessitem exceção.</li><li>Alterações/encaminhamentos operacionais.</li></ul></div>
-      <div class="panel" style="border-color:rgba(234,67,53,.4)"><span class="fi">🛠️</span><p class="muted" style="font-size:16px">Suporte geral</p><div class="who">Marcos + Guilherme</div>
+      <div class="panel" style="border-color:rgba(234,67,53,.4)"><span class="fi">🛠️</span><p class="muted" style="font-size:16px">Suporte geral</p><div class="who">Marcos, Guilherme, Coimbra e Jaque</div>
         <ul class="ticks" style="--c:1;--dot:var(--red)"><li>Apoio operacional.</li><li>Ocorrências.</li><li>Infraestrutura.</li><li>Energia.</li><li>Transporte de materiais.</li><li>Apoio às equipes.</li></ul></div>
       <div class="panel" style="border-color:rgba(66,133,244,.4)"><span class="fi">📻</span><p class="muted" style="font-size:16px">Comunicação</p><div class="who">Suportes de sala + Credenciamento + Suporte Geral</div>
         <p class="muted">São os principais pontos de comunicação via walkie-talkie.</p></div>
+      <div class="panel" style="border-color:rgba(165,107,255,.4)"><span class="fi">🎤</span><p class="muted" style="font-size:16px">Palestrantes</p><div class="who">Rafael Fantinel</div>
+        <p class="muted">Responsável pela área de palestrantes na escala. Quem é quem está na <a href="https://docs.google.com/spreadsheets/d/13N8IrtxU_gTK6UsFhYFGz_KuvH534vQ2NrZHgayw4EA/edit?gid=485563921#gid=485563921" target="_blank" rel="noopener">planilha de palestrantes e patrocinadores</a>.</p></div>
     </div>
   </div>
 </section>
 
-<!-- 37 REGRAS RÁPIDAS -->
 <section class="slide" data-title="Regras rápidas para o Staff" data-chapter="Checklists e pendências" data-emoji="⚡" style="--acc:var(--yellow)">
-  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span><span class="num">Seção 47</span></div>
+  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span></div>
     <h2>⚡ Regras rápidas para o Staff</h2></header>
   <div class="s-body">
     <div class="quick">
@@ -1010,75 +1108,73 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
       <div class="q"><div class="qq"><span>⏰</span>Palestrante atrasou?</div><div class="qa"><b>Não altera a programação.</b></div></div>
       <div class="q"><div class="qq"><span>🔌</span>Problema de energia?</div><div class="qa">Não mexer → <b>Suporte Geral</b>.</div></div>
       <div class="q"><div class="qq"><span>🎒</span>Achou objeto?</div><div class="qa">Credenciamento → <b>Achados e Perdidos</b>.</div></div>
-      <div class="q"><div class="qq"><span>🩹</span>Primeiros socorros?</div><div class="qa"><b>Credenciamento</b> possui o kit.</div></div>
+      <div class="q"><div class="qq"><span>🩹</span>Primeiros socorros?</div><div class="qa">Kit no <b>espaço da comunidade</b>, no pátio.</div></div>
       <div class="q"><div class="qq"><span>🏫</span>Faculdade/portaria?</div><div class="qa"><b>Fernanda</b>.</div></div>
       <div class="q"><div class="qq"><span>📻</span>Walkie-talkie?</div><div class="qa"><b>Ligado</b> durante o evento. Não alterar configuração.</div></div>
-      <div class="q"><div class="qq"><span>📦</span>Terminou sua sala?</div><div class="qa">Conferir caixa → <b>Sala do Staff</b>.</div></div>
+      <div class="q"><div class="qq"><span>📦</span>Terminou sua sala?</div><div class="qa">Conferir caixa → <b>Suporte Geral</b> leva ao carro.</div></div>
+      <div class="q"><div class="qq"><span>🔒</span>Alguém de fora na Sala do Staff?</div><div class="qa"><b>Não entra.</b> Só Staff.</div></div>
+      <div class="q"><div class="qq"><span>☕</span>Coffee e patrocinadores?</div><div class="qa">Tudo no <b>pátio</b>.</div></div>
+      <div class="q"><div class="qq"><span>📶</span>Wi-Fi?</div><div class="qa">Rede de <b>visitantes</b> da Faculdade.</div></div>
+      <div class="q"><div class="qq"><span>🚻</span>Banheiro?</div><div class="qa">Disponíveis <b>nos andares</b>.</div></div>
     </div>
   </div>
 </section>
 
-<!-- 38 PENDÊNCIAS OBRIGATÓRIAS -->
 <section class="slide" data-title="Pendências obrigatórias" data-chapter="Checklists e pendências" data-emoji="🔴" style="--acc:var(--red)">
-  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span><span class="num">Seção 48</span></div>
-    <h2>🔴 Pendências obrigatórias</h2><p class="sub">Apesar do manual estar praticamente fechado, alguns pontos ainda precisam de uma definição nominal.</p></header>
+  <header class="s-head"><div class="tag"><span class="chap">Checklists e pendências</span></div>
+    <h2>🔴 Pendências obrigatórias</h2><p class="sub">As trilhas Sentinela e Lua Cheia já estão completas. Ainda faltam estas definições.</p></header>
   <div class="s-body">
-    <ul class="check req" style="--c:3" data-list="pend-obrig">
-      <li><label><input type="checkbox"><span>Responsável da Trilha Sentinela</span></label></li>
-      <li><label><input type="checkbox"><span>Condução da Trilha Sentinela</span></label></li>
-      <li><label><input type="checkbox"><span>Suporte da Trilha Sentinela</span></label></li>
-      <li><label><input type="checkbox"><span>Operação técnica da Trilha Sentinela</span></label></li>
-      <li><label><input type="checkbox"><span>Suporte da Trilha Lua Cheia</span></label></li>
+    <ul class="check req" style="--c:2" data-list="pend-obrig-v2">
       <li><label><input type="checkbox"><span>Escala de almoço de todas as posições</span></label></li>
       <li><label><input type="checkbox"><span>Substitutos de cada posição durante o almoço</span></label></li>
       <li><label><input type="checkbox"><span>Quem terá walkie-talkie exatamente</span></label></li>
       <li><label><input type="checkbox"><span>Quem terá acesso às salas (ver com Adri)</span></label></li>
-      <li><label><input type="checkbox"><span>Confirmação do suporte técnico/internet</span></label></li>
-      <li><label><input type="checkbox"><span>Definição de quem acompanha cada necessidade de infraestrutura com a Faculdade</span></label></li>
+      <li><label><input type="checkbox"><span>Confirmação do suporte técnico</span></label></li>
+      <li><label><input type="checkbox"><span>Quem acompanha cada necessidade de infraestrutura com a Faculdade</span></label></li>
+      <li><label><input type="checkbox"><span>Conteúdo das 43 sacolas de brindes dos palestrantes</span></label></li>
     </ul>
   </div>
 </section>
 
-<!-- 39 PENDÊNCIAS CONFERIR -->
 <section class="slide" data-title="Conferir antes de 30/10" data-chapter="Checklists e pendências" data-emoji="🟡" style="--acc:var(--yellow)">
-  <header class="s-head" style="margin-bottom:18px"><div class="tag"><span class="chap">Checklists e pendências</span><span class="num">Seção 48</span></div>
+  <header class="s-head" style="margin-bottom:18px"><div class="tag"><span class="chap">Checklists e pendências</span></div>
     <h2>🟡 Conferir antes de 30/10</h2></header>
   <div class="s-body" style="gap:14px">
-    <ul class="check conf" style="--c:4" data-list="pend-conf">
-      <li><label><input type="checkbox"><span>Todos os notebooks testados</span></label></li>
-      <li><label><input type="checkbox"><span>Todos os passadores testados</span></label></li>
+    <ul class="check conf" style="--c:5" data-list="pend-conf-v2">
+      <li><label><input type="checkbox"><span>Notebooks recebidos e testados</span></label></li>
+      <li><label><input type="checkbox"><span>Passadores testados</span></label></li>
       <li><label><input type="checkbox"><span>Pilhas reserva separadas</span></label></li>
-      <li><label><input type="checkbox"><span>Todos os timers funcionando</span></label></li>
+      <li><label><input type="checkbox"><span>Timers funcionando</span></label></li>
       <li><label><input type="checkbox"><span>Walkie-talkies carregados</span></label></li>
-      <li><label><input type="checkbox"><span>Caixas identificadas por sala</span></label></li>
+      <li><label><input type="checkbox"><span>Caixas de apoio identificadas por área</span></label></li>
       <li><label><input type="checkbox"><span>Cronogramas impressos</span></label></li>
       <li><label><input type="checkbox"><span>Lista de participantes impressa</span></label></li>
       <li><label><input type="checkbox"><span>Lista de canecas impressa</span></label></li>
-      <li><label><input type="checkbox"><span>Crachás separados</span></label></li>
-      <li><label><input type="checkbox"><span>Welcome kits montados</span></label></li>
-      <li><label><input type="checkbox"><span>Sacolas de Staff montadas e identificadas</span></label></li>
+      <li><label><input type="checkbox"><span>Crachás + cordões separados</span></label></li>
+      <li><label><input type="checkbox"><span>500 welcome kits montados</span></label></li>
+      <li><label><input type="checkbox"><span>36 sacolas de Staff montadas</span></label></li>
+      <li><label><input type="checkbox"><span>43 sacolas de palestrantes montadas</span></label></li>
       <li><label><input type="checkbox"><span>Vouchers de almoço separados</span></label></li>
-      <li><label><input type="checkbox"><span>5 carregadores portáteis no credenciamento</span></label></li>
-      <li><label><input type="checkbox"><span>Cabos disponíveis</span></label></li>
-      <li><label><input type="checkbox"><span>Extensão do credenciamento</span></label></li>
+      <li><label><input type="checkbox"><span>2 powerbanks no credenciamento</span></label></li>
+      <li><label><input type="checkbox"><span>Extensões separadas</span></label></li>
       <li><label><input type="checkbox"><span>Kit de primeiros socorros</span></label></li>
       <li><label><input type="checkbox"><span>Caixa de achados e perdidos</span></label></li>
-      <li><label><input type="checkbox"><span>Patos de brinde</span></label></li>
-      <li><label><input type="checkbox"><span>Caixa de som do Lounge/Pátio</span></label></li>
-      <li><label><input type="checkbox"><span>Banners</span></label></li>
-      <li><label><input type="checkbox"><span>Sinalização</span></label></li>
+      <li><label><input type="checkbox"><span>Patos de brinde e Patos Pila</span></label></li>
+      <li><label><input type="checkbox"><span>Caixa de som do pátio</span></label></li>
+      <li><label><input type="checkbox"><span>Banners, totens e backdrop</span></label></li>
+      <li><label><input type="checkbox"><span>Cartazes com QR Code</span></label></li>
+      <li><label><input type="checkbox"><span>Toalhas das mesas</span></label></li>
+      <li><label><input type="checkbox"><span>Torre de tomadas do pátio</span></label></li>
+      <li><label><input type="checkbox"><span>Totem Ambrosia</span></label></li>
+      <li><label><input type="checkbox"><span>Canhões de LED</span></label></li>
       <li><label><input type="checkbox"><span>Materiais dos patrocinadores</span></label></li>
-      <li><label><input type="checkbox"><span>Equipamentos da transmissão</span></label></li>
-      <li><label><input type="checkbox"><span>Mesa de som testada</span></label></li>
-      <li><label><input type="checkbox"><span>Áudio do pátio testado</span></label></li>
-      <li><label><input type="checkbox"><span>Ar-condicionado das salas conferido</span></label></li>
-      <li><label><input type="checkbox"><span>Iluminação conferida</span></label></li>
+      <li><label><input type="checkbox"><span>Mesa de som e transmissão testadas</span></label></li>
+      <li><label><input type="checkbox"><span>Ar-condicionado e iluminação conferidos</span></label></li>
       <li><label><input type="checkbox"><span>Acessos/chaves confirmados com Adri</span></label></li>
     </ul>
   </div>
 </section>
 
-<!-- 40 FINAL -->
 <section class="slide" data-title="A regra mais importante" data-chapter="Encerramento" style="--acc:var(--moon)">
   <div class="moon sm" aria-hidden="true"></div>
   <header class="s-head"><div class="tag"><span class="chap">Encerramento</span></div>
@@ -1091,6 +1187,7 @@ body.fluid .mtitle{display:flex;gap:8px;align-items:center}
       <li>Nenhuma programação é alterada.</li>
       <li>Nenhum participante entra sem ingresso sem autorização da coordenação.</li>
       <li>E ninguém precisa resolver sozinho o que não é responsabilidade da sua função.</li>
+      <li>No fim do dia, a gente comemora junto no after. 🎉</li>
     </ol>
     <div><p class="muted">O objetivo é que o Staff consiga olhar para esse manual e saber exatamente:</p>
       <div class="ask"><span>📍 Onde eu preciso estar</span><span>✅ O que eu preciso fazer</span><span>📻 Quem eu chamo</span><span>➡️ O que acontece depois</span></div></div>
